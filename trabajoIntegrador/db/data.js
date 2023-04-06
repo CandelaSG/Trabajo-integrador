@@ -1,7 +1,7 @@
 const data = {
     usuario : {
         email : "julianalvarez@gmail.com.ar",
-        usuario : "laaraniaquepica123",
+        usuario : "julian_arania9",
         contrasenia : "",
         fecha_nacimiento : "31-01-2000",
         documento : "43000111",
