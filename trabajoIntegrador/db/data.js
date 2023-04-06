@@ -72,9 +72,30 @@ const data = {
     ],
     comentarios : [
         {
-            nombre_usuario : "",
-            texto_comentario : "",
-            foto_perfil : ""
+            nombre_usuario : "Harry.styles",
+            texto_comentario : "It's the best product I have ever bought. I will always choose Let's go before any other brand. Love -H 💜",
+            foto_perfil : "/images/users/harry.png"
+        },
+        {
+            nombre_usuario : "Leo_messi",
+            texto_comentario : "Mateo, Ciro y Thiago aman estos Let's Go. Gracias por su atención, soy cliente fijo, los amo!! :)",
+            foto_perfil : "/images/users/messi.png"
+        },
+        {
+            nombre_usuario : "Milanesa_de_Carne",
+            texto_comentario : "Increible producto, me gustaría que agregaran más de comidas!!",
+            foto_perfil : "/images/users/milanesa.png"
+        },
+        {
+            nombre_usuario : "Alberto.f123",
+            texto_comentario : "Por culpa de que compré muchos de sus productos aumentó la deuda externa del país, espero que quede entre nosotros.",
+            foto_perfil : "/images/users/alberto.png"
+        },
+        {
+            nombre_usuario : "WinniePooh_enojado",
+            texto_comentario : "😡",
+            foto_perfil : "/images/users/winnie.png"
         }
     ]
 }
+module.exports = data;
