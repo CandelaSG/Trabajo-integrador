@@ -6,7 +6,7 @@
 	<!-- Header -->
 	<%- include('./partials/header') %>
 	<!-- /Header -->
-	
+ <main>
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
@@ -32,57 +32,11 @@
 								<img src=<%= comentarios[i].foto_perfil %> alt="Foto perfil">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="profile.ejs"><%= comentarios[i].nombre_usuario %>: </a> </strong>
+									<strong> <a href="/profile"><%= comentarios[i].nombre_usuario %>: </a> </strong>
 									<%= comentarios[i].texto_comentario %></p>
 								</div>
 							</article>
 						<% } %>
-						
-
-
-
-						<!-- <article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="profile.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
-							</div>
-						</article> -->
 
 					</section>
 					<form class="form" action="" method="POST">
@@ -95,7 +49,7 @@
 		</div>
 	</div>
 	<!-- /product detail -->
-
+	</main>
 	<!-- footer -->
 	<%- include('./partials/footer') %>
 	<!-- /footer -->

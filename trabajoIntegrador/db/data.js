@@ -1,11 +1,11 @@
 const data = {
     usuario : {
-        email : "",
-        usuario : "",
+        email : "julianalvarez@gmail.com.ar",
+        usuario : "laaraniaquepica123",
         contrasenia : "",
-        fecha_nacimiento : "",
-        documento : "",
-        foto_perfil : "",
+        fecha_nacimiento : "31-01-2000",
+        documento : "43000111",
+        foto_perfil : "/images/users/julian.png",
     },
     productos : [
         {   
