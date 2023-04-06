@@ -1,4 +1,4 @@
-const data = require('../db/data')
+const data = require('../db/data');
 const productController = {
     show : function (req, res) {
         let id = req.params.id;
