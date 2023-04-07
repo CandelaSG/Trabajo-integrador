@@ -72,18 +72,18 @@ const data = {
     ],
     comentarios : [
         {
-            nombre_usuario : "Harry.styles",
+            nombre_usuario : "Javier.estilos",
             texto_comentario : "It's the best product I have ever bought. I will always choose Let's go before any other brand. Love -H 💜",
             foto_perfil : "/images/users/harry.png"
         },
         {
-            nombre_usuario : "Leo_messi",
+            nombre_usuario : "El_Messias",
             texto_comentario : "Mateo, Ciro y Thiago aman estos Let's Go. Gracias por su atención, soy cliente fijo, los amo!! :)",
             foto_perfil : "/images/users/messi.png"
         },
         {
-            nombre_usuario : "Milanesa_de_Carne",
-            texto_comentario : "Increible producto, me gustaría que agregaran más de comidas!!",
+            nombre_usuario : "Milanesa_de_carne",
+            texto_comentario : "Increible producto, me gustaría que hicieran uno de milanesas con puré, yummy!!",
             foto_perfil : "/images/users/milanesa.png"
         },
         {
