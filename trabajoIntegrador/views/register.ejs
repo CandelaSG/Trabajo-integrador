@@ -13,15 +13,36 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Registrate</h2>
+				<h2 class="products-title"></h2>
 			</div>
-			<!-- Show the "ultimos" products -->
+			<!-- Show the "ultimos" products 
 			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
 			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
 			Eliminen estás líneas y coloquen el formulario. <br>
 			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
 			////////////////
-			</h2>
+			</h2> -->
+			<div>
+				<div>
+				  <h2> Registrate! </h2>
+				<form action="/profile/register" method="get">
+					<input type="text" name="nombre" placeholder="Nombre">
+					<br>
+					<input type="text" name="apellido" placeholder="Apellido">
+					<br>
+					<input type="number" name="documento" placeholder="Número de Documento">
+					<br>
+					<input type="text" name="email" placeholder="Email">
+					<br>
+					<input type="password" name="contrasena" placeholder="Contraseña">
+					<br>
+					<label for="profilePic"> Elija una foto de perfil</label>
+					<input type="file" name="imgPerfil" placeholder= "Imagen de Perfil" value="">
+					<hr>
+					<input type="submit" value="Register">
+				  </form>
+		
+				</div>
 
 	</main>
 	<!-- footer -->
