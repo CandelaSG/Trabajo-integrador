@@ -8,31 +8,38 @@
 	<!-- Header -->
 	<%- include('./partials/header') %>
 	<!-- /Header -->
-	<main>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+	<main class="mainLog">
+		<!-- Novedades -->
+		<h1 class="products-title">¡Que lindo verte de nuevo!      <i class="fa-regular fa-face-grin-beam  fa-xs" style="color: var(--gray);"></i> </h1>
+	
+		<div class="products-wrapper containerLog">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Log in</h2>
+				</div>
+				<!-- Show the "ultimos" products -->
+				<section class="sectionLog">
+					
+					<form action="" method="get" class="formLog">
+						<div class="inputForm">
+						<i class="fa-solid fa-envelope icon"></i>
+						<input type="email" name="email" placeholder="ej. elonmusk@email.com" >
+						</div>
+
+						<div class="inputForm">
+						<i class="fa-solid fa-lock icon"></i>
+						<input type="password" name="contrasenia" placeholder="ej. Ilovemangos123" >
+						</div>
+
+						<p class="recordar">¿Queres que te recordemos? <input type="checkbox" name="recordame" class="inputForm"></p>
+
+						<button type="submit" class="ingresar">Ingresar</button>
+					</form>
+					
+				</section>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de login. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2> -->
-			<section class="login">
-				<form action="" method="get">
-				<input type="email" name="email" placeholder="Email" id="">
-				<input type="password" name="contrasenia" placeholder="Contraseña" id="">
-				</form>
-				<form action="" method="get">
-					<h3>¿Queres que te recordemos? <input type="checkbox" name="recordame" id=""></h3>
-				</form>
-				<p class="ingresar"><button type="submit">Ingresar</button></p>
-			</section>
-		</main>
+		</div>
+	</main>
 	<!-- footer -->
 	<%- include('./partials/footer') %>
 	<!-- /footer -->

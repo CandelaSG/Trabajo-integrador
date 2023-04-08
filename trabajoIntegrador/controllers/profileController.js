@@ -1,4 +1,3 @@
-const { productos } = require('../db/data');
 const data = require('../db/data');
 const profileController= {
     show : function (req, res) {

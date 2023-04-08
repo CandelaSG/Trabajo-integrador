@@ -68,19 +68,31 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: #f80000;
+  display: flex;
+  flex-direction: column;
 }
-
+.container{
+  display: flex;
+  flex-direction: row;
+}
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
 }
-
-.main-header_credit-link {
+.containerHeader{
+  justify-content: space-around;
+}
+.login{
+  background-color: #1f1d48;
+  padding: 8px 15px 8px 15px;
+  border-radius: 10px;
+}
+ .main-header_credit-link {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
-}
+} 
 
 .search-form {
   position: relative;
@@ -118,29 +130,23 @@ hr {
   border: none;
   border-radius: 4px;
   padding: 5px 15px;
-  display: block;
+/*   display: block; */
   margin: 20px auto 0;
 }
 
 .main-navbar {
   margin-top: 20px;
-  display: none;
+  display: flex;
+  justify-content: center;
+
 }
 
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
-}
-
-.logout{
-  background: transparent;
-  border: 0px;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-.logout:hover{
-  color: #1259c3;
+  color: white;
+  font-weight: 500;
+  
 }
 
 .left-navbar a,
@@ -150,15 +156,47 @@ hr {
   border-bottom: solid 1px var(--gray);
 }
 
+/*====== Header Logueado ======*/
+.imgPerfil{
+  height: 3vw;
+  width: 3vw;
+}
+.listaLogueado{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5em;
+  color: white;
+  font-weight: 500;
+}
+.perfil{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10%;
+  margin-right: 10px;
+}
+.logout{
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  font-size: 1vw;
+  color: white;
+  width: 65px;
+}
 
+.logout:hover{
+  text-decoration: underline;
+}
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 100px;
+  margin-bottom: 50px;
 }
 
 
@@ -202,6 +240,7 @@ hr {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  font-size: 18px;
 }
 
 .product-box_data span {
@@ -259,9 +298,9 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
-  padding: 20px 0;
-  margin-top: 80px;
+  background-color: #1f1d48;
+  padding: 10px 0;
+  margin-top: 50px;
 }
 
 .footer-data {
@@ -269,19 +308,19 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
-  font-size: 3.5em;
+  color: white;
+  font-size: 1.5vw;
 }
 
 .footer-data h2 {
-  color: var(--gray);
-  font-size: 2.4em;
+  color: white;
+  font-size: 1vw;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
-  font-size: 1.5em;
+  color: white;
+  font-size: 0.8vw;
   font-weight: 300;
 }
 
@@ -452,7 +491,67 @@ textarea.form-input {
   resize: vertical;
   padding: 15px;
 }
+/*====== Log in ======*/
 
+
+.mainLog{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.containerLog{
+  background-color: rgba(255, 255, 255, 0.817);
+  box-shadow: 2px 2px 2px 2px rgba(55, 55, 55, 0.286);
+  display: flex;
+  justify-content: center;
+  width: 30vw;
+  height: 40vh;
+  border-radius: 5%;
+  
+}
+.sectionLog{
+  display: flex;
+  justify-content: center;
+}
+input[type="email"], input[type="password"]{
+  font-size: 10px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+}
+.inputForm{
+  border: 1px solid #aaa;
+  width: 25vw;
+  margin-bottom: 15px;
+}
+.formLog{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon{
+  min-width: 50px;
+  text-align: center;
+  color: #aaa;
+}
+.ingresar{
+  border: none;
+  padding: 15px 25px;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  background-color: #1f1d48;
+  cursor: pointer;
+}
+.ingresar:hover{
+  background-color: #1f1d48df;
+}
+.recordar{
+  font-size: 15px;
+}
 /*====== Profile ======*/
 .info-usuario{
   border-bottom: 1px solid #ccc;
@@ -508,7 +607,8 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: white;
+    text-decoration: underline;
   }
 
   .left-navbar li {

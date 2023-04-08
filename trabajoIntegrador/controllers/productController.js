@@ -12,6 +12,11 @@ const productController = {
             informacionProducto: informacion, 
             comentarios: data.comentarios
         }
-    )}
+    )},
+    add : function (req, res) {
+        return res.render('product-add', {
+            profile: data.usuario
+        })
+    }
 }
 module.exports = productController;

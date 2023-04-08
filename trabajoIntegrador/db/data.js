@@ -46,13 +46,13 @@ const data = {
         id:6
     }, {
         imagen: "/images/products/landRover.png",
-        nombre:"Land Rover Classic Defender 90",
+        nombre:"Land Rover Classic",
         descripcion:"Déjate llevar por tu creatividad: Descubre el Land Rover Classic Defender 90 LEGO® Icons, un absorbente proyecto para constructores adultos que te permitirá crear, personalizar y exponer tu propio coche de colección",
         fecha_carga:"",
         id:7
     }, {
         imagen: "/images/products/naveNasa.png",
-        nombre:"Transbordador Espacial Discovery de la NASA",
+        nombre:"Transbordador Espacial",
         descripcion:"Disfruta de horas de construcción envolvente mientras creas tanto el transbordador espacial Discovery como el telescopio espacial Hubble lanzado al espacio en 1990 durante la misión STS-31 de la NASA.",
         fecha_carga:"",
         id:8

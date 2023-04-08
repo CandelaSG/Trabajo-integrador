@@ -1,9 +1,9 @@
 <header class="main-header">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center containerHeader">
             <div class="col-5 col-md-2">
                 <a href="/" class="main-header_home-link">
-                    <img src="/images/logo-mercado-liebre.svg">
+                    <img src="/images/logo.png">
                 </a>
             </div>
 
@@ -14,24 +14,12 @@
                 </form>
             </div>
 
-            <div class="col-12 col-md-4">
+            <!-- <div class="col-12 col-md-4">
                 <a class="main-header_credit-link">
                     <i class="fas fa-hand-holding-usd"></i>
                     Todas las opiniones en un solo lugar.
                 </a>
-            </div>
-        </div>
-
-        <button class="btn-toggle-navbar">
-            <i class="fas fa-bars"></i>
-        </button>
-
-        <nav class="main-navbar">
-            <ul class="left-navbar">
-                <li><a href="index.ejs">Todos los productos</a></li>
-                <!-- solo logueado <li><a href="">Cargar productos</a></li> -->
-            </ul>
-
+            </div> -->
             <ul class="right-navbar">
                 <!-- Solo logueado <li><a href="profile.ejs">
                         Nombre del usuario <i class="fas fa-user"></i>
@@ -44,14 +32,24 @@
                         </button>
                     </form>
                 </li> -->
-                <li>
-                    <a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
+                <li >
+                    <a href="/register">Sign in <!-- <i class="far fa-address-card"></i> -->
                     </a>
                 </li>
-                <li>
-                    <a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+                <li class="login">
+                    <a href="/login">Log in <!-- <i class="fas fa-sign-in-alt"></i> --></a>
                 </li>
             </ul>
-        </nav>
+        </div>
+
+        <button class="btn-toggle-navbar">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
+    <nav class="main-navbar">
+        <ul class="left-navbar">
+            <li><a href="/">Todos los productos</a></li>
+            <!-- solo logueado <li><a href="">Cargar productos</a></li> -->
+        </ul>
+    </nav>
 </header>
