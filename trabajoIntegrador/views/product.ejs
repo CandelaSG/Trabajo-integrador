@@ -10,10 +10,7 @@
 	<!-- product detail -->
 	<div class="containerProducts products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= informacionProducto[0].nombre %></h2> 
-			<p class="product-detail-description">
-				<a href="product-add.ejs">Editar</a>
-			</p>
+			<h2 class="products-title"><%= informacionProducto[0].nombre %>       <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -48,11 +45,10 @@
 			</div>
 		</div>
 	</div>
-	<!-- /product detail -->
 	</main>
-	<!-- footer -->
+
 	<%- include('./partials/footer') %>
-	<!-- /footer -->
+
 
 </body>	
 </html>

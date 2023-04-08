@@ -27,7 +27,7 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  font-family: 'Arimo', sans-serif;
   font-weight: 300;
   background-color: var(--light-gray);
 }
@@ -40,6 +40,7 @@ ol {
 }
 
 a {
+  font-family: 'Arimo', sans-serif;
   display: inline-block;
   text-decoration: none;
   color: inherit;
@@ -63,7 +64,9 @@ hr {
   border: none;
   border-bottom: solid 1px var(--light-gray);
 }
-
+h2{
+  font-family: 'Kanit', sans-serif;
+}
 
 /*====== Main Header ======*/
 .main-header {
@@ -410,7 +413,7 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: #1f1d48;
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
