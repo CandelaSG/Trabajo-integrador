@@ -76,6 +76,10 @@ hr {
   display: flex;
   flex-direction: row;
 }
+.containerProducts{
+  display: block;
+  margin: 30px;
+}
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
@@ -138,7 +142,6 @@ hr {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-
 }
 
 .left-navbar,
@@ -146,7 +149,6 @@ hr {
   font-size: 1.5em;
   color: white;
   font-weight: 500;
-  
 }
 
 .left-navbar a,
@@ -590,14 +592,20 @@ input[type="email"], input[type="password"]{
   .btn-toggle-navbar {
     display: none;
   }
+  .main-navbar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 
-  .main-navbar,
+  
   .left-navbar,
   .right-navbar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .left-navbar a,
