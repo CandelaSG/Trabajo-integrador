@@ -8,39 +8,53 @@
 	<!-- Header -->
 	<%- include('./partials/headerLogueado') %>
 	<!-- /Header -->
+	<main class="mainLog">
+		<div class="products-wrapper containerLog containerEdit">
+			<div class="row">
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Editar mi perfil</h2>
+				<div class="col-12">
+					<h2 class="products-title titleLog">Editar mi perfil</h2>
+				</div>
+
+				<form action="" method="get" class="formLog">
+					<div class="inputForm">
+						<i class="fa-solid fa-envelope fa-xl icon"></i>
+						<input type="email" name="email" placeholder="Email">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-solid fa-user fa-xl icon"></i>
+						<input type="text" name="usuario" placeholder="Usuario" class="text">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-solid fa-lock fa-xl icon"></i>
+						<input type="password" name="contrasena" placeholder="Contraseña">
+					</div>
+
+					<div class="inputForm">
+						<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-solid fa-address-card fa-xl icon"></i>
+						<input type="number" name="documento" placeholder="Número de Documento">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-regular fa-image fa-xl icon"></i>
+						<input type="text" name="fotodeperfil" placeholder="Foto de Perfil" class="text">
+					</div>
+					<button type="submit" class="cambios">Guardar cambios</button>
+				</form>
+
 			</div>
-			<!-- Show the "ultimos" products
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de edición de datos del perfil de usuario. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos deñ usuario<br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2> -->
-			<section class="sectionLog">
-				<form action="" method="get">
-					<input type="email" name="email" placeholder="Email">
-					<hr>
-					<input type="text" name="usuario" placeholder="Usuario">
-					<hr>
-					<input type="password" name="contrasena" placeholder="Contraseña">
-					<hr>
-					<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
-					<hr>
-					<input type="number" name="documento" placeholder="Número de Documento">
-					<hr>
-					<input type="text" name="fotodeperfil" placeholder="Foto de Perfil">
-			 	</form>
-			</section>
 		</div>
-	</div>
-
+	</main>
 	<!-- footer -->
+	<section class="sectionLego">
+		<img src="/images/lego.png" class="lego" alt="">
+	</section>
 	<%- include('./partials/footer') %>
 	<!-- /footer -->
 </body>

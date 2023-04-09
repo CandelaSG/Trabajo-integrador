@@ -73,12 +73,12 @@ const data = {
     comentarios : [
         {
             nombre_usuario : "Javier.estilos",
-            texto_comentario : "It's the best product I have ever bought. I will always choose Let's go before any other brand. Love -H 💜",
+            texto_comentario : "It's the best product I have ever bought. I will always choose LEGOLAND before any other brand. Love -H 💜",
             foto_perfil : "/images/users/harry.png"
         },
         {
             nombre_usuario : "El_Messias",
-            texto_comentario : "Mateo, Ciro y Thiago aman estos Let's Go. Gracias por su atención, soy cliente fijo, los amo!! :)",
+            texto_comentario : "Mateo, Ciro y Thiago adoran sus juguetes de LEGOLAND. Gracias por su atención, soy cliente fijo, los amo!! :)",
             foto_perfil : "/images/users/messi.png"
         },
         {

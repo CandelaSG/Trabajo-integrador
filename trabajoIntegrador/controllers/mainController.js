@@ -2,7 +2,8 @@ const data = require('../db/data')
 const mainController = {
     index : function (req, res) {
         return res.render('index', {
-            productosMain: data.productos
+            productosMain: data.productos,
+            cantComentarios: data.comentarios.length
         })
     },
     login : function (req, res) {

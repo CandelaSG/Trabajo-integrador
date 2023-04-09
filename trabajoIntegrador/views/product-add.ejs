@@ -6,36 +6,36 @@
 <body>
 <%- include('./partials/headerLogueado') %>
 	<!-- /Header -->
-	<main>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<main class="mainLog">
+
+	<div class="products-wrapper containerLog">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title titleLog">Agregar productos</h2>
 			</div>
-			<!-- Show the "ultimos" products
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2> -->
 
-			<form action="" method="get">
-				<label for="producto"> Producto: </label>
-				<input type="text" name="producto" placeholder= "Nombre del producto" value=""> 
-				<hr>
-				<label for="descripcion"> Descripción: </label>
-				<input type="text" name="descripcion" placeholder="Descripción">
-				<hr>
-				<label for="foto"> Imágen del producto: </label>
-				<input type="file" name="imgProducto" placeholder= "Imágen" value="">
-				<hr>
-				<input type="submit" value="Agregar">
+			<form action="" method="get" class="formLog">
+				<div class="inputForm">
+				<!-- <label for="producto"> Producto: </label> -->
+				<input type="text" name="producto" placeholder= "Nombre del producto" value="" class="text"> 
+				</div>
+				<div class="inputForm">
+				<!-- <label for="descripcion"> Descripción: </label> -->
+					<input type="text" name="descripcion" placeholder="Descripción" class="text">
+				</div>
+				<div class="inputForm">
+				<!-- <label for="foto"> Imágen del producto: </label> -->
+					<input type="file" name="imgProducto" value="">
+				</div>
+				<button type="submit" class="ingresar">Agregar</button>
 			  </form>
 
-		</main>
+	</main>
+	
 	<!-- footer -->
+	<section class="sectionLego">
+		<img src="/images/lego.png" class="lego" alt="">
+	</section>
 	<%- include('./partials/footer') %>
 	<!-- /footer -->
 </body>

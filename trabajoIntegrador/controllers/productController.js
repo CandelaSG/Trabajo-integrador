@@ -11,6 +11,7 @@ const productController = {
         return res.render("product", {
             informacionProducto: informacion, 
             comentarios: data.comentarios
+
         }
     )},
     add : function (req, res) {
