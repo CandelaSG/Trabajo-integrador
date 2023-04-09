@@ -305,7 +305,6 @@ h2{
 .main-footer {
   background-color: #1f1d48;
   padding: 10px 0;
-  margin-top: 50px;
 }
 
 .footer-data {
@@ -498,7 +497,6 @@ textarea.form-input {
 }
 /*====== Log in ======*/
 
-
 .mainLog{
   text-align: center;
   display: flex;
@@ -510,27 +508,32 @@ textarea.form-input {
 .containerLog{
   background-color: rgba(255, 255, 255, 0.817);
   box-shadow: 2px 2px 2px 2px rgba(55, 55, 55, 0.286);
+  box-shadow: 2px 2px 2px 2px #1f1d4862;
   display: flex;
   justify-content: center;
   width: 30vw;
-  height: 40vh;
+  height: 35vh;
   border-radius: 5%;
   
 }
-.sectionLog{
-  display: flex;
-  justify-content: center;
+.titleLog{
+  color: #1f1d48;
 }
-input[type="email"], input[type="password"]{
+input[type="email"], input[type="password"],input[type="date"],input[type="number"], .text{
   font-size: 10px;
   padding: 10px;
   border: none;
   background-color: transparent;
+  width: 20vw;
 }
 .inputForm{
   border: 1px solid #aaa;
-  width: 25vw;
+  border: 1px solid #1f1d48;
+  border-radius: 0.5vw;
+  width: 26vw;
   margin-bottom: 15px;
+  text-align: left;
+
 }
 .formLog{
   display: flex;
@@ -544,10 +547,10 @@ input[type="email"], input[type="password"]{
 }
 .ingresar{
   border: none;
-  padding: 15px 25px;
+  padding: 10px 11vw;
   border-radius: 10px;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   background-color: #1f1d48;
   cursor: pointer;
 }
@@ -556,6 +559,26 @@ input[type="email"], input[type="password"]{
 }
 .recordar{
   font-size: 15px;
+}
+.lego{
+  width: 7vw;
+}
+.sectionLego{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/*====== Sign in ======*/
+.containerReg{
+  background-color: rgba(255, 255, 255, 0.817);
+  box-shadow: 2px 2px 2px 2px rgba(55, 55, 55, 0.286);
+  box-shadow: 2px 2px 2px 2px #1f1d4862;
+  display: flex;
+  justify-content: center;
+  border-radius: 5%;
+  height: 55vh;
+  
 }
 /*====== Profile ======*/
 .info-usuario{

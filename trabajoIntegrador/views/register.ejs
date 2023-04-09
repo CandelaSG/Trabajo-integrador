@@ -8,44 +8,55 @@
 	<!-- Header -->
 	<%- include('./partials/header') %>
 	<!-- /Header -->
-	<main>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title"></h2>
-			</div>
-			<!-- Show the "ultimos" products 
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2> -->
-			<div>
-				<div>
-				  <h2> Registrate! </h2>
-				<form action="" method="get">
-					<input type="email" name="email" placeholder="Email">
-					<hr>
-					<input type="text" name="usuario" placeholder="Usuario">
-					<hr>
-					<input type="password" name="contrasena" placeholder="Contraseña">
-					<hr>
-					<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
-					<hr>
-					<input type="number" name="documento" placeholder="Número de Documento">
-					<hr>
-					<input type="text" name="fotodeperfil" placeholder="Foto de Perfil">
-					<hr>
-					<p class="ingresar"><button type="submit">Ingresar</button></p>
-				  </form>
+	<main class="mainLog">
+
+		<h1 class="products-title">¡Hola!      <i class="fa-regular fa-face-grin-beam  fa-xs" style="color: var(--gray);"></i> </h1>
+
+		<div class="products-wrapper containerReg">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title titleLog">Sign in</h2>
 				</div>
+
+				<form action="" method="get" class="formLog">
+					<div class="inputForm">
+						<i class="fa-solid fa-envelope fa-xl icon"></i>
+						<input type="email" name="email" placeholder="Email">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-solid fa-user fa-xl icon"></i>
+						<input type="text" name="usuario" placeholder="Usuario" class="text">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-solid fa-lock fa-xl icon"></i>
+						<input type="password" name="contrasenia" placeholder="Contraseña">
+					</div>
+
+					<div class="inputForm">
+						<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-solid fa-address-card fa-xl icon"></i>
+						<input type="number" name="documento" placeholder="Número de Documento">
+					</div>
+
+					<div class="inputForm">
+						<i class="fa-regular fa-image fa-xl icon"></i>
+						<input type="text" name="fotodeperfil" placeholder="Foto de Perfil" class="text">
+					</div>
+
+					<button type="submit" class="ingresar">Ingresar</button>
+				</form>
 			</div>
 		</div>
-	</div>
 	</main>
 	<!-- footer -->
+	<section class="sectionLego">
+		<img src="/images/lego.png" class="lego" alt="">
+	</section>
 	<%- include('./partials/footer') %>
 	<!-- /footer -->
 </body>
