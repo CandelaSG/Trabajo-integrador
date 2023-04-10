@@ -19,5 +19,11 @@ const productController = {
             profile: data.usuario
         })
     }
+    ,
+    search: function (req, res){
+       // return res.render('search-results')
+
+       return res.render("search-results")
+    }
 }
 module.exports = productController;
