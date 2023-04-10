@@ -166,6 +166,14 @@ h2{
   height: 3vw;
   width: 3vw;
 }
+.conteinerHeader{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.barraHeader{
+  
+}
 .listaLogueado{
   display: flex;
   flex-direction: row;
@@ -516,6 +524,10 @@ textarea.form-input {
   border-radius: 5%;
   
 }
+.row{
+  align-items: center;
+  justify-content: center;
+}
 .titleLog{
   color: #1f1d48;
 }
@@ -539,6 +551,7 @@ input[type="email"], input[type="password"],input[type="date"],input[type="numbe
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 .icon{
   min-width: 50px;
