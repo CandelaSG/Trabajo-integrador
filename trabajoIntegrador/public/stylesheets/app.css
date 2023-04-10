@@ -171,9 +171,7 @@ h2{
     flex-direction: row;
     justify-content: space-between;
 }
-.barraHeader{
-  
-}
+
 .listaLogueado{
   display: flex;
   flex-direction: row;
