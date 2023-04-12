@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
+	<!-- Include Head -->
+	<%- include('./partials/head') %>
 
-<%- include('./partials/head') %>
+	<body>
+		<!-- Header -->
+		<%- include('./partials/header') %>
 
-<body>
-	<!-- Header -->
-	<%- include('./partials/header') %>
-	<!-- /Header -->
-	<main>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title">Resultado de la busqueda: <%=informacionSearch[0].nombre %>       <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
-		</div>
-		<div class="product-detail">
-			 <div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src=<%= informacionSearch[0].imagen %>  alt=<%= informacionSearch[0].nombre %> class="product-detail-img">
-					<p class="product-detail-description">
-						<%= informacionSearch[0].descripcion %>
-					</p>
-					
-					
+		<main>
+			<!-- Novedades -->
+			<section class="container products-wrapper">
+				<article class="d-flex align-items-center">
+					<h2 class="products-title">Resultado de la busqueda: <%=informacionSearch[0].nombre %>       <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
 				</article>
-				<div class="col-12 col-lg-4">
-					<section class="comments">
-						<%for( let i = 0; i < comentariosSearch.length; i++ ) { %>
-							<article>
-								<img src=<%= comentariosSearch[i].foto_perfil %> alt="Foto perfil">
-								<div class="data">
-									<p class="user">
-									<strong> <a href="/profile"><%= comentariosSearch[i].nombre_usuario %>: </a> </strong>
-									<%= comentariosSearch[i].texto_comentario %></p>
-								</div>
-							</article>
-						<% } %>
 
-					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
-				</div>
-			</div> 
-		</div>
+				<article class="product-detail">
+					<section class="row">
+						<article class="col-12 col-lg-8 product-detail-info">
+							<img src="<%= informacionSearch[0].imagen %>"  alt="<%= informacionSearch[0].nombre %>" class="product-detail-img">
+							<p class="product-detail-description">
+								<%= informacionSearch[0].descripcion %>
+							</p>
+						</article>
+
+						<article class="col-12 col-lg-4">
+							<section class="comments">
+								<%for( let i = 0; i < comentariosSearch.length; i++ ) { %>
+									<article>
+										<img src=<%= comentariosSearch[i].foto_perfil %> alt="Foto perfil">
+										<div class="data">
+											<p class="user">
+											<strong> <a href="/profile"><%= comentariosSearch[i].nombre_usuario %>: </a> </strong>
+											<%= comentariosSearch[i].texto_comentario %></p>
+										</div>
+									</article>
+								<% } %>
+
+							</section>
+
+							<form class="form" action="" method="POST">
+								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+							</form>
+							<hr>
+
+						</article>
+					</section> 
+				</article>
+
+			</section>
 		</main>
+		
+		<!-- footer -->
+		<%- include('./partials/footer') %>
 
-	<!-- footer -->
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
-</body>
+	</body>
 
 </html>

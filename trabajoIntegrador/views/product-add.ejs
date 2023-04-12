@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<%- include('./partials/head') %>
-<body>
-<%- include('./partials/headerLogueado') %>
-	<!-- /Header -->
-	<main class="mainLog">
+	<!-- Include Head -->
+	<%- include('./partials/head') %>
 
-	<div class="products-wrapper containerLog">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title titleLog">Agregar productos</h2>
-			</div>
+	<body>
+		<!-- Header -->
+		<%- include('./partials/headerLogueado') %>
+		
+		<main class="mainLog">
 
-			<form action="/" method="get" class="formLog">
-				<div class="inputForm">
-				<!-- <label for="producto"> Producto: </label> -->
-				<input type="text" name="producto" placeholder= "Nombre del producto" value="" class="text"> 
-				</div>
-				<div class="inputForm">
-				<!-- <label for="descripcion"> Descripción: </label> -->
-					<input type="text" name="descripcion" placeholder="Descripción" class="text">
-				</div>
-				<div class="inputForm">
-				<!-- <label for="foto"> Imágen del producto: </label> -->
-					<input type="file" name="imgProducto" value="">
-				</div>
-				<button type="submit" class="ingresar">Agregar</button>
-			  </form>
+			<section class="products-wrapper containerLog">
+				<section class="row">
 
-	</main>
-	
-	<!-- footer -->
-	<section class="sectionLego">
-		<img src="/images/lego.png" class="lego" alt="">
-	</section>
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
-</body>
+					<article class="col-12">
+						<h2 class="products-title titleLog">Agregar productos</h2>
+					</article>
+
+					<form action="/" method="get" class="formLog">
+
+						<article class="inputForm">
+							<input type="text" name="producto" placeholder= "Nombre del producto" value="" class="text"> 
+						</article>
+
+						<article class="inputForm">
+							<input type="text" name="descripcion" placeholder="Descripción" class="text">
+						</article>
+
+						<article class="inputForm">
+							<input type="file" name="imgProducto" value="">
+						</article>
+
+						<button type="submit" class="ingresar">Agregar</button>
+
+					</form>
+
+				</section>
+			</section>
+		</main>
+		
+		<!-- footer -->
+		<section class="sectionLego">
+			<img src="/images/lego.png" class="lego" alt="">
+		</section>
+		<%- include('./partials/footer') %>
+
+	</body>
 
 </html>

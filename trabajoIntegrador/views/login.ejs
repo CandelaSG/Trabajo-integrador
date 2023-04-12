@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
+	<!-- Include Head -->
+	<%- include('./partials/head') %>
 
-<%- include('./partials/head') %>
+	<body class="bodyLog">
+		<!-- Header -->
+		<%- include('./partials/header') %>
+		
+		<main class="mainLog">
 
-<body class="bodyLog">
-	<!-- Header -->
-	<%- include('./partials/header') %>
-	<!-- /Header -->
-	<main class="mainLog">
+			<h1 class="products-title">¡Que lindo verte de nuevo!      <i class="fa-regular fa-face-grin-beam  fa-xs" style="color: var(--gray);"></i> </h1>
+		
+			<section class="products-wrapper containerLog">
+				<section class="row">
 
-		<h1 class="products-title">¡Que lindo verte de nuevo!      <i class="fa-regular fa-face-grin-beam  fa-xs" style="color: var(--gray);"></i> </h1>
-	
-		<div class="products-wrapper containerLog">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title titleLog">Log in</h2>
-				</div>
-					
-				<form action="/profile" method="get" class="formLog">
-					<div class="inputForm">
-						<i class="fa-solid fa-envelope fa-xl icon"></i>
-						<input type="email" name="email" placeholder="ej. elon@musk.com" >
-					</div>
+					<article class="col-12">
+						<h2 class="products-title titleLog">Log in</h2>
+					</article>
+						
+					<form action="/profile" method="get" class="formLog">
 
-					<div class="inputForm">
-					<i class="fa-solid fa-lock fa-xl icon"></i>
-					<input type="password" name="contrasenia" placeholder="ej. Ilovemangos123" >
-					</div>
+						<article class="inputForm">
+							<i class="fa-solid fa-envelope fa-xl icon"></i>
+							<input type="email" name="email" placeholder="ej. elon@musk.com" >
+						</article>
 
-					<button type="submit" class="ingresar">Ingresar</button>
+						<article class="inputForm">
+							<i class="fa-solid fa-lock fa-xl icon"></i>
+							<input type="password" name="contrasenia" placeholder="ej. Ilovemangos123" >
+						</article>
 
-					<div class="inputRecordar">
-					<p class="recordar">¿Querés que te recordemos? </p>
-					<input class="recordar" type="checkbox" name="recordame" class="inputForm">
-					</div>
-				</form>
-			</div>
-		</div>
-		<p class="recordar">¿No tenés un perfil? <a href="/register" class="crear">Creá uno</a></p>
-	</main>
-	<!-- footer -->
-	<section class="sectionLego">
-	<img src="/images/lego.png" class="lego" alt="">
-	</section>
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
-</body>
+						<button type="submit" class="ingresar">Ingresar</button>
+
+						<article class="inputRecordar">
+							<p class="recordar">¿Querés que te recordemos? </p>
+							<input class="recordar" type="checkbox" name="recordame" class="inputForm">
+						</article>
+
+					</form>
+
+				</section>
+			</section>
+
+			<p class="recordar">¿No tenés un perfil? <a href="/register" class="crear">Registrate</a></p>
+
+		</main>
+		
+		<!-- footer -->
+		<section class="sectionLego">
+			<img src="/images/lego.png" class="lego" alt="">
+		</section>
+
+		<%- include('./partials/footer') %>
+
+	</body>
 
 </html>

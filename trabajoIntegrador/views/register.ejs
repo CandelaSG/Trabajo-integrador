@@ -12,55 +12,64 @@
 
 		<h1 class="products-title">¡Hola!      <i class="fa-regular fa-face-grin-beam  fa-xs" style="color: var(--gray);"></i> </h1>
 
-		<div class="products-wrapper containerLog containerReg ">
-			<div class="row">
-				<div class="col-12">
+		<section class="products-wrapper containerLog containerReg ">
+			<section class="row">
+
+				<article class="col-12">
 					<h2 class="products-title titleLog">Sign in</h2>
-				</div>
-				<div>
+				</article>
+
+				<article>
 					<form action="/login" method="get" class="formLog">
-						<div class="inputForm">
+						
+						<article class="inputForm">
 							<i class="fa-solid fa-envelope fa-xl icon"></i>
 							<input type="email" name="email" placeholder="Email">
-						</div>
+						</article>
 
-						<div class="inputForm">
+						<article class="inputForm">
 							<i class="fa-solid fa-user fa-xl icon"></i>
 							<input type="text" name="usuario" placeholder="Usuario" class="text">
-						</div>
+						</article>
 
-						<div class="inputForm">
+						<article class="inputForm">
 							<i class="fa-solid fa-lock fa-xl icon"></i>
 							<input type="password" name="contrasenia" placeholder="Contraseña">
-						</div>
+						</article>
 
-						<div class="inputForm">
+						<article class="inputForm">
 							<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
-						</div>
+						</article>
 
-						<div class="inputForm">
+						<article class="inputForm">
 							<i class="fa-solid fa-address-card fa-xl icon"></i>
 							<input type="number" name="documento" placeholder="Número de Documento">
-						</div>
+						</article>
 
-						<div class="inputForm">
+						<article class="inputForm">
 							<i class="fa-regular fa-image fa-xl icon"></i>
 							<input type="text" name="fotodeperfil" placeholder="Foto de Perfil" class="text">
-						</div>
+						</article>
 
 						<button type="submit" class="ingresar">Ingresar</button>
+
 					</form>
-				</div>
-			</div>
-		</div>
+				</article>
+
+			</section>
+		</section>
+
 		<p class="recordar">¿Ya tenés un perfil? <a href="/login" class="crear">Inicia sesión</a></p>
+
 	</main>
+
 	<!-- footer -->
 	<section class="sectionLego">
 		<img src="/images/lego.png" class="lego" alt="">
 	</section>
+
 	<%- include('./partials/footer') %>
-	<!-- /footer -->
+
 </body>
 
 </html>

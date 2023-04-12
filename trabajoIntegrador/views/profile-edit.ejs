@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
+	<!-- Include Head -->
+	<%- include('./partials/head') %>
 
-<%- include('./partials/head') %>
+	<body>
+		<!-- Header -->
+		<%- include('./partials/headerLogueado') %>
 
-<body>
-	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>
-	<!-- /Header -->
-	<main class="mainLog">
-		<div class="products-wrapper containerLog containerEdit">
-			<div class="row">
+		<main class="mainLog">
+			<section class="products-wrapper containerLog containerEdit">
+				<section class="row">
 
-				<div class="col-12">
-					<h2 class="products-title titleLog">Editar mi perfil</h2>
-				</div>
+					<article class="col-12">
+						<h2 class="products-title titleLog">Editar mi perfil</h2>
+					</article>
 
-				<form action="/" method="get" class="formLog">
-					<div class="inputForm">
-						<i class="fa-solid fa-envelope fa-xl icon"></i>
-						<input type="email" name="email" placeholder="Email">
-					</div>
+					<form action="/" method="get" class="formLog">
+						<article class="inputForm">
+							<i class="fa-solid fa-envelope fa-xl icon"></i>
+							<input type="email" name="email" placeholder="Email">
+						</article >
 
-					<div class="inputForm">
-						<i class="fa-solid fa-user fa-xl icon"></i>
-						<input type="text" name="usuario" placeholder="Usuario" class="text">
-					</div>
+						<article  class="inputForm">
+							<i class="fa-solid fa-user fa-xl icon"></i>
+							<input type="text" name="usuario" placeholder="Usuario" class="text">
+						</article >
 
-					<div class="inputForm">
-						<i class="fa-solid fa-lock fa-xl icon"></i>
-						<input type="password" name="contrasena" placeholder="Contraseña">
-					</div>
+						<article  class="inputForm">
+							<i class="fa-solid fa-lock fa-xl icon"></i>
+							<input type="password" name="contrasena" placeholder="Contraseña">
+						</article >
 
-					<div class="inputForm">
-						<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
-					</div>
+						<article  class="inputForm">
+							<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
+						</article >
 
-					<div class="inputForm">
-						<i class="fa-solid fa-address-card fa-xl icon"></i>
-						<input type="number" name="documento" placeholder="Número de Documento">
-					</div>
+						<article  class="inputForm">
+							<i class="fa-solid fa-address-card fa-xl icon"></i>
+							<input type="number" name="documento" placeholder="Número de Documento">
+						</article >
 
-					<div class="inputForm">
-						<i class="fa-regular fa-image fa-xl icon"></i>
-						<input type="text" name="fotodeperfil" placeholder="Foto de Perfil" class="text">
-					</div>
-					<button type="submit" class="cambios">Guardar cambios</button>
-				</form>
+						<article  class="inputForm">
+							<i class="fa-regular fa-image fa-xl icon"></i>
+							<input type="text" name="fotodeperfil" placeholder="Foto de Perfil" class="text">
+						</article >
 
-			</div>
-		</div>
-	</main>
-	<!-- footer -->
-	<section class="sectionLego">
-		<img src="/images/lego.png" class="lego" alt="">
-	</section>
-	<%- include('./partials/footer') %>
-	<!-- /footer -->
-</body>
+						<button type="submit" class="cambios">Guardar cambios</button>
+					</form>
+
+				</section>
+			</section>
+		</main>
+
+		<!-- footer -->
+		<section class="sectionLego">
+			<img src="/images/lego.png" class="lego" alt="">
+		</section>
+		<%- include('./partials/footer') %>
+
+	</body>
 
 </html>
