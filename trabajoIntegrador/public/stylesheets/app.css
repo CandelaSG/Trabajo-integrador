@@ -568,8 +568,16 @@ input[type="email"], input[type="password"],input[type="date"],input[type="numbe
 .ingresar:hover{
   background-color: #1f1d48df;
 }
+.inputRecordar{
+  display: flex;
+  flex-direction: row;
+}
 .recordar{
   font-size: 15px;
+}
+.crear{
+  color: #1f1d48;
+  text-decoration: underline;
 }
 .lego{
   width: 7vw;
