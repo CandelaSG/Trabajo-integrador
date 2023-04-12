@@ -81,7 +81,7 @@ h2{
 }
 .containerProducts{
   display: block;
-  margin: 30px;
+  margin: 150px;
 }
 .main-header_home-link,
 .main-header_credit-link {
@@ -333,7 +333,9 @@ h2{
   font-size: 0.8vw;
   font-weight: 300;
 }
-
+.img-footer{
+  width: 45%;
+}
 .sub-footer {
   border-top: 1px solid var(--light-gray);
   background-color: #ffffff;
