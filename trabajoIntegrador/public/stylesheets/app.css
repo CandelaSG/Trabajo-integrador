@@ -100,7 +100,9 @@ h2{
   margin-top: 20px;
   text-align: center;
 } 
-
+.buscador{
+  width: 35vw;
+}
 .search-form {
   position: relative;
   display: flex;

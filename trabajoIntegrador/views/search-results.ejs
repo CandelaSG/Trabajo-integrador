@@ -9,46 +9,31 @@
 
 		<main>
 			<!-- Novedades -->
-			<section class="containerProducts products-wrapper">
-				<article class="d-flex align-items-center">
-					<h2 class="products-title">Resultado de la busqueda: <%=informacionSearch[0].nombre %>       <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
-				</article>
-
-				<article class="product-detail">
-					<section class="row">
-						<article class="col-12 col-lg-8 product-detail-info">
-							<img src="<%= informacionSearch[0].imagen %>"  alt="<%= informacionSearch[0].nombre %>" class="product-detail-img">
-							<p class="product-detail-description">
-								<%= informacionSearch[0].descripcion %>
-							</p>
-						</article>
-
-						<article class="col-12 col-lg-4">
-							<section class="comments">
-								<%for( let i = 0; i < comentariosSearch.length; i++ ) { %>
-									<article>
-										<img src=<%= comentariosSearch[i].foto_perfil %> alt="Foto perfil">
-										<div class="data">
-											<p class="user">
-											<strong> <a href="/profile"><%= comentariosSearch[i].nombre_usuario %>: </a> </strong>
-											<%= comentariosSearch[i].texto_comentario %></p>
-										</div>
+			<section class="container products-wrapper">
+				<section class="row">
+					<article class="col-12">
+						<h2 class="products-title">Resultado de la busqueda: Harry Potter   <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
+					</article>
+					<!-- Show the "ultimos" products -->
+					<% for( let i = 8; i < 12; i++ ) { %>
+						<article class="col-12 col-sm-6 col-lg-3">
+							<section class="product-box">
+								<a href="id/<%=informacionSearch[i].id%>">
+									<figure class="product-box_image">
+										<img src="<%=informacionSearch[i].imagen %>" alt="Imagen de <%=informacionSearch[i].nombre %>">
+									</figure>
+									<article class="product-box_data">
+										<h2><%=informacionSearch[i].nombre %></h2>
+										<p><%=informacionSearch[i].descripcion %></p>
+										<p>Comentarios: 5</p>
 									</article>
-								<% } %>
-
+								</a>
 							</section>
-
-							<form class="form" action="" method="POST">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-							</form>
-							<hr>
-
 						</article>
-					</section> 
-				</article>
-
+					<% } %>
+				</section>
 			</section>
+
 		</main>
 		
 		<!-- footer -->
