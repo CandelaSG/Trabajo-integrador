@@ -1,13 +1,13 @@
 <header class="main-header">
-	<div class="container">
-		<div class="row align-items-center containerHeader">
+	<div class="conteinerHeader">
+		
 			<div class="col-5 col-md-2">
 				<a href="/" class="main-header_home-link">
 					<img src="/images/logo.png">
 				</a>
 			</div>
-
-			<div class="col-7 col-md-6">
+		<div class="row align-items-center">
+			<div class="buscador">
 				<form action="/product/search" method="GET" class="search-form">
 					<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
 					<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
@@ -23,9 +23,9 @@
 			<ul class="listaLogueado">
 				<li class="perfil">
 					<a href="/profile"> 
-						<img class="imgPerfil" src=<%= profile.foto_perfil %> alt="">
-						<%= profile.usuario %>
+						<img class="imgPerfil" src="<%= profile.foto_perfil %>" alt="Foto de perfil de <%= profile.usuario %>">
 					</a>
+					<a href="/profile"> <%= profile.usuario %></a>
 				</li> 
 				<li class="login">
 					<form action="/" method="get">
@@ -43,4 +43,4 @@
 		<li><a href="/product/add">Cargar productos</a></li> 
 	</ul> 
 </header>
-<!-- /Header -->
+
