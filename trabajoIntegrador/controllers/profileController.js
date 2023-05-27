@@ -1,13 +1,13 @@
 const db = require('../database/models');
-
+const data = require('../db/data')
 const bcrypt = require('bcryptjs');
 
 const profileController= {
     show : function (req, res) {
         return res.render('profile', {
-            /* profile: data.usuario,
+            profile: data.usuario,
             productos: data.productos,
-            cantComentarios: data.comentarios.length */
+            cantComentarios: data.comentarios.length
         })
     },
     edit : function (req, res) {
@@ -18,6 +18,40 @@ const profileController= {
     },
     login : function (req, res) {
         return res.render('login', {
+            /* usuarioMain: data.usuario */
+        })
+    },
+    loginPost: function(req, res) {
+        let emailBuscar = req.body.email;
+        let contraseniaBuscar = req.body.contrasenia;
+
+        let filtrado = {
+            where: [
+                {email: emailBuscar}
+            ]
+        }
+
+        db.Perfil.findOne(filtrado)
+        .then((result) => {
+            if (result != null) {
+
+                let contraseniaCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia);
+
+                if (contraseniaCorrecta) {
+                    return res.send('Existe el mail buscado y su contraseña es correcta');
+                } else {
+                    return res.send('Existe el mail buscado y pero su contraseña es incorrecta');
+                }
+               
+            } else {
+                return res.send('Nooooo Existe el mail buscado');
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
+    },
+    register: function (req, res) {
+        return res.render('register', {
             /* usuarioMain: data.usuario */
         })
     },
@@ -43,11 +77,6 @@ const profileController= {
             console.log(error);
         });
         
-    },
-    register: function (req, res) {
-        return res.render('register', {
-            /* usuarioMain: data.usuario */
-        })
     }
 }
 module.exports = profileController;

@@ -6,6 +6,7 @@ router.get('/', profileController.show);
 router.get('/edit', profileController.edit);
 // LOGIN
 router.get('/login', profileController.login);
+router.post('/login', profileController.loginPost);
 
 // REGISTER
 router.get('/register', profileController.register); 
