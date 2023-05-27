@@ -16,6 +16,34 @@ const profileController= {
             productos: data.productos */
         })
     },
+    register: function (req, res) {
+        return res.render('register', {
+            /* usuarioMain: data.usuario */
+        })
+    },
+    store: function(req, res) {
+        let datos = req.body;
+        console.log(datos);
+
+        let guardarPerfil = {
+            usuario: datos.usuario,
+            email: datos.email,
+            contrasenia: bcrypt.hashSync(datos.contrasenia, 10),
+            /* foto_perfil: datos.foto_perfil, */ // opcional
+            fecha_nacimiento: datos.fecha_nacimiento,
+            documento: datos.documento,
+            remember_token: ""
+        };
+
+        db.Perfil.create(guardarPerfil)
+        .then(function(result) {
+            return res.redirect('/profile/login');
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+        
+    },
     login : function (req, res) {
         return res.render('login', {
             /* usuarioMain: data.usuario */
@@ -34,7 +62,6 @@ const profileController= {
         db.Perfil.findOne(filtrado)
         .then((result) => {
             if (result != null) {
-
                 let contraseniaCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia);
 
                 if (contraseniaCorrecta) {
@@ -49,34 +76,6 @@ const profileController= {
         }).catch((err) => {
             console.log(err);
         });
-    },
-    register: function (req, res) {
-        return res.render('register', {
-            /* usuarioMain: data.usuario */
-        })
-    },
-    store: function(req, res) {
-        let datos = req.body;
-        console.log(datos);
-
-        let guardarPerfil = {
-            usuario: datos.usuario,
-            email: datos.email,
-            contrasenia: bcrypt.hashSync(datos.contrasenia, 10),
-            foto_perfil: datos.foto_perfil, // opcional
-            fecha_nacimiento: datos.fecha_nacimiento,
-            documento: datos.documento,
-            remember_token: ""
-        };
-
-        db.Perfil.create(guardarPerfil)
-        .then(function(result) {
-            return res.redirect('/profile/login');
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-        
     }
 }
 module.exports = profileController;
