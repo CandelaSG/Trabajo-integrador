@@ -12,19 +12,19 @@
 			<section class="container products-wrapper">
 				<section class="row">
 					<article class="col-12">
-						<h2 class="products-title">Resultado de la busqueda: Harry Potter   <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
+						<h2 class="products-title">Resultado de la busqueda:<%=listaProductos[i].nombre %> <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
 					</article>
 					<!-- Show the "ultimos" products -->
-					<% for( let i = 8; i < 12; i++ ) { %>
+					<% for( let i = 0; i < listaProductos.lenght; i++ ) { %>
 						<article class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">
-								<a href="id/<%=informacionSearch[i].id%>">
+								<a href="id/<%=listaProductos[i].id%>">
 									<figure class="product-box_image">
-										<img src="<%=informacionSearch[i].imagen %>" alt="Imagen de <%=informacionSearch[i].nombre %>">
+										<img src="<%=listaProductos[i].foto %>" alt="Imagen de <%=informacionSearch[i].nombre %>">
 									</figure>
 									<article class="product-box_data">
-										<h2><%=informacionSearch[i].nombre %></h2>
-										<p><%=informacionSearch[i].descripcion %></p>
+										<h2><%=listaProductos[i].nombre %></h2>
+										<p><%=listaProductos[i].descripcion %></p>
 										<p>Comentarios: 5</p>
 									</article>
 								</a>
