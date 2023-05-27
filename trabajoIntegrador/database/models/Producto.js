@@ -8,7 +8,6 @@ module.exports = function (sequelize, dataTypes) {
         },
         nombre: {
             type: dataTypes.STRING(200),
-            //not null?
         },
         descripcion:{
             type: dataTypes.STRING(500),
@@ -28,6 +27,20 @@ module.exports = function (sequelize, dataTypes) {
 
     const Producto = sequelize.define(alias,cols,config);
     //relaciones
+
+    Producto.associate = function(models) {
+        // Un perfil --> muchos productos
+        Producto.belongsTo(models.Perfil , {
+            as: "perfil",
+            foreignKey: "id_perfil"
+        }),
+        // Un producto --> muchos comentarios
+        Producto.hasMany(models.Comentario, {
+            as: "comentario",
+            foreignKey: "id_producto"
+        })
+    };
+
     return Producto;
 }
 

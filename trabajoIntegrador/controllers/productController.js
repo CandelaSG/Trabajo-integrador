@@ -27,12 +27,13 @@ const productController = {
         let busqueda = req.query.search;
         let filtrado = {
         where: [
-            {title: {[op.like]: "%" + busqueda + "%"}}
+            {nombre: {[op.like]: "%" + busqueda + "%"} } // Cómo agregar otra condición
         ]}
         producto.findAll(filtrado)
         .then((result)=>{
             console.log (result)
             return res.render("search-results", {
+                busqueda: busqueda,
                 listaProductos:result
             })
         })
@@ -40,12 +41,5 @@ const productController = {
             console.log(err);
         })
     }
-    /* function (req, res){
-        return res.render("search-results", {
-            informacionSearch: data.productos, 
-            comentariosSearch: data.comentarios
-
-        })
-    } */
 };
 module.exports = productController;
