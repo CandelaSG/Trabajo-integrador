@@ -27,18 +27,18 @@
 							<section class="comments">
 								<% for( let i = 0; i < producto.comentario.length; i++ ) { %>
 									<article>
-										<img src=<%= comentarios[i].foto_perfil %> alt="Foto perfil">
+										<img src=<%= producto.comentario[i].perfil.foto_perfil %> alt="Foto perfil">
 										<div class="data">
 											<p class="user">
-											<strong> <a href="/profile"><%= comentarios[i].nombre_usuario %>: </a> </strong>
-											<%= comentarios[i].texto_comentario %></p>
+											<strong> <a href="/profile"><%= producto.comentario[i].perfil.usuario %>: </a> </strong>
+											<%= producto.comentario[i].texto %></p>
 										</div>
 									</article>
 								<% } %>
 							</section>
 
-							<form class="form" action="" method="GET">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+							<form class="form" action="/product/comentario/<%= producto.id %>" method="POST">
+								<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 							<hr>

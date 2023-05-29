@@ -23,8 +23,6 @@ const profileController= {
     },
     store: function(req, res) {
         let datos = req.body;
-        console.log(datos);
-
         let guardarPerfil = {
             usuario: datos.usuario,
             email: datos.email,

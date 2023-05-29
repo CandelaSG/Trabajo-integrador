@@ -2,6 +2,7 @@ const data = require('../db/data');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
 const producto = db.Producto;
+const comentario = db.Comentario;
 
 const productController = {
     show : function (req, res) {
@@ -23,20 +24,7 @@ const productController = {
         .catch(function (error) {
             console.log(error);
         });
-
-
-        /* let informacion = []
-        for (let i = 0; i < data.productos.length; i++){
-            if (id == data.productos[i].id){
-                informacion.push(data.productos[i])
-            }
-        }
-        return res.render("product", {
-            informacionProducto: informacion, 
-            comentarios: data.comentarios
-
-        }
-    ) */},
+},
     add : function (req, res) {
         return res.render('product-add', {
             profile: data.usuario
@@ -63,7 +51,8 @@ const productController = {
         let busqueda = req.query.search;
         let filtrado = {
         where: [
-            {nombre: {[op.like]: "%" + busqueda + "%"} } // Cómo agregar otra condición
+            {nombre: {[op.like]: "%" + busqueda + "%"},
+            descripcion: {[op.like]:  "%" + busqueda + "%"}} // Cómo agregar otra condición
         ]}
         producto.findAll(filtrado)
         .then((result)=>{
@@ -103,6 +92,22 @@ const productController = {
         console.log(err);
       });
     
-    }, 
+    },
+    storeComentario: (req, res) =>{
+     let coment = {
+        texto: req.body.comentario,
+        id_producto: req.params.id,
+        id_perfil: 1 // cambiar esto por el id del usuario en session
+
+     }
+
+    comentario.create(coment)
+     .then( function(resultado){
+         return res.redirect(`/product/id/${req.params.id}`)
+        })
+     .catch (function(err){
+        console.log(err)
+    });
+    }
 };
 module.exports = productController;

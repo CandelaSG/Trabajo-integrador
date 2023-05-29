@@ -7,8 +7,10 @@ router.get('/id/:id', productController.show);
 router.get('/add', productController.add);
 router.post('/add', productController.storeProduct);
 
-router.get("/update/:id", productController.formUpdate)
-router.post("/update/:id", productController.update)
+router.get("/update/:id", productController.formUpdate);
+router.post("/update/:id", productController.update);
 
 router.get('/search', productController.search);
+
+router.post('/comentario/:id', productController.storeComentario)
 module.exports = router;
