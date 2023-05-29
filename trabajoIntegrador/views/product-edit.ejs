@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+	<!-- Include Head -->
+	<%- include('./partials/head') %>
+
+	<body>
+		<!-- Header -->
+		<%- include('./partials/header') %>
+
+		<main class="mainLog">
+			<section class="products-wrapper containerLog containerEdit">
+				<section class="row">
+
+					<article class="col-12">
+						<h2 class="products-title titleLog">Editar producto</h2>
+					</article>
+
+					<form action="/product/update/<%= producto.id %>" method="POST" class="formLog">
+						<article class="inputForm">
+							<input type="text" name="nombre" placeholder= "Nombre del producto" value="<%= producto.nombre %>" class="text"> 
+						</article>
+
+						<article class="inputForm">
+							<input type="text" name="descripcion" placeholder="Descripción" value="<%= producto.descripcion %>" class="text">
+						</article>
+
+						<article class="inputForm">
+							<input type="text" name="foto" value="<%= producto.foto %>" placeholder="Foto del producto" class="text">
+						</article>
+
+						<button type="submit" class="ingresar">Editar</button>
+					</form>
+
+				</section>
+			</section>
+		</main>
+
+		<!-- footer -->
+		<section class="sectionLego">
+			<img src="/images/lego.png" class="lego" alt="">
+		</section>
+		<%- include('./partials/footer') %>
+
+	</body>
+
+</html>

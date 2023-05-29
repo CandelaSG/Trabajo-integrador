@@ -10,22 +10,22 @@
 			<section class="containerProducts products-wrapper">
 
 				<article class="d-flex align-items-center">
-					<h2 class="products-title"><%= informacionProducto[0].nombre %>       <a href="/product/add"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
+					<h2 class="products-title"><%= producto.nombre %>       <a href="/product/update/<%= producto.id %>"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
 				</article>
 
 				<article class="product-detail">
 					<section class="row">
 						<article class="col-12 col-lg-8 product-detail-info">
-							<img src=<%= informacionProducto[0].imagen %>  alt=<%= informacionProducto[0].nombre %> class="product-detail-img">
+							<img src=<%= producto.foto %>  alt=<%= producto.nombre %> class="product-detail-img">
 							<p class="product-detail-description">
-								<%= informacionProducto[0].descripcion %>
+								<%= producto.descripcion %>
 							</p>
 							
 							
 						</article>
 						<article class="col-12 col-lg-4">
 							<section class="comments">
-								<% for( let i = 0; i < comentarios.length; i++ ) { %>
+								<% for( let i = 0; i < producto.comentario.length; i++ ) { %>
 									<article>
 										<img src=<%= comentarios[i].foto_perfil %> alt="Foto perfil">
 										<div class="data">

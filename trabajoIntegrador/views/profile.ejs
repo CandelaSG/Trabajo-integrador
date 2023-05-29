@@ -10,7 +10,11 @@
 		<section class="info-usuario container products-wrapper">
 			<section class="row">
 				<article class="img-container offset-3 col-2">
-					<img src="<%= profile.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
+					<% if (profile.foto_perfil != null) { %>
+						<img src="<%= profile.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
+					<% } else {%>
+						<img src="/images/users/perfilDefault.png" alt="foto de perfil" class="foto-perfil">
+						<% }%>
 				</article>
 				<article class="data-container col-6">
 					<div class="d-flex align-items-center ">

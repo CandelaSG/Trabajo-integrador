@@ -3,6 +3,12 @@ const router = express.Router();
 const productController = require('../controllers/productController');
 
 router.get('/id/:id', productController.show);
+
 router.get('/add', productController.add);
+router.post('/add', productController.storeProduct);
+
+router.get("/update/:id", productController.formUpdate)
+router.post("/update/:id", productController.update)
+
 router.get('/search', productController.search);
 module.exports = router;
