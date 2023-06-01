@@ -4,7 +4,11 @@
 	<%- include('./partials/head') %>
 	<body>
 		<!-- Header -->
-		<%- include('./partials/header') %>
+		<% if (locals.user != undefined) { %>
+			<%- include('./partials/headerLogueado')  %> 
+	<% } else{%>
+			<%- include('./partials/header')  %> 
+	<% } %> 
 		<main>
 			<!-- Product detail -->
 			<section class="containerProducts products-wrapper">

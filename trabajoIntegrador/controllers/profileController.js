@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const data = require('../db/data')
 const bcrypt = require('bcryptjs');
+const user = db.User;
 
 const profileController= {
     show : function (req, res) {
@@ -43,9 +44,11 @@ const profileController= {
         
     },
     login : function (req, res) {
-        return res.render('login', {
-            /* usuarioMain: data.usuario */
-        })
+        if (req.session.user != undefined) {
+            return res.redirect('/');
+        } else {
+            return res.render('login');
+        }
     },
     loginPost: function(req, res) {
         let emailBuscar = req.body.email;
@@ -57,23 +60,48 @@ const profileController= {
             ]
         }
 
-        db.Perfil.findOne(filtrado)
-        .then((result) => {
-            if (result != null) {
-                let contraseniaCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia);
+        // validacion de email y contraseña
+        let errors = {}
 
-                if (contraseniaCorrecta) {
-                    return res.send('Existe el mail buscado y su contraseña es correcta');
-                } else {
-                    return res.send('Existe el mail buscado y pero su contraseña es incorrecta');
-                }
-               
-            } else {
-                return res.send('Nooooo Existe el mail buscado');
-            }
-        }).catch((err) => {
-            console.log(err);
-        });
+        if (emailBuscar == undefined ) {
+            errors.message = 'El email está vacío';
+            res.locals.errors = errors;
+            return res.render('login')
+
+        } else if (contraseniaBuscar.length < 3) {
+            errors.message = 'Las contraseñas requieren mas de 3 digitos';
+            res.locals.errors = errors;
+            return res.render('login')
+        } else {
+            user.findOne(filtrado)
+                .then((result) => {
+
+                    if (result != null) {
+                        let claveCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia);
+                        if (claveCorrecta) {
+
+                            req.session.user = result.dataValues;
+
+                            if (req.body.recordarme != undefined) {
+                                res.cookie('userId', result.dataValues.id, { maxAge: 1000 * 60 * 100 })
+                            }
+
+                            return res.redirect("/")
+
+                        } else {
+                            errors.message = 'El email existe, pero la contraseña es incorrecta';
+                            res.locals.errors = errors;
+                            return res.render('login')
+                        }
+                    } else {
+                        errors.message = 'El email ingresado no existe';
+                        res.locals.errors = errors;
+                        return res.render('login')
+                    }
+                }).catch((err) => {
+                    console.log(err);
+                });   
+        }
     }
 }
 module.exports = profileController;
