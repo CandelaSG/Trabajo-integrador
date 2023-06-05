@@ -1,7 +1,7 @@
 const db = require('../database/models');
 const data = require('../db/data')
 const bcrypt = require('bcryptjs');
-const user = db.User;
+const perfil = db.Perfil;
 
 const profileController= {
     show : function (req, res) {
@@ -13,8 +13,8 @@ const profileController= {
     },
     edit : function (req, res) {
         return res.render('profile-edit', {
-            /* profile: data.usuario,
-            productos: data.productos */
+            profile: data.usuario,
+            productos: data.productos
         })
     },
     register: function (req, res) {
@@ -24,11 +24,15 @@ const profileController= {
     },
     store: function(req, res) {
         let datos = req.body;
+        let foto_perfil_store = '/images/users/perfilDefault.png';
+        if (datos.foto_perfil != "") {
+            foto_perfil_store = datos.foto_perfil
+        }
         let guardarPerfil = {
             usuario: datos.usuario,
             email: datos.email,
             contrasenia: bcrypt.hashSync(datos.contrasenia, 10),
-            /* foto_perfil: datos.foto_perfil, */ // opcional
+            foto_perfil: foto_perfil_store, // opcional
             fecha_nacimiento: datos.fecha_nacimiento,
             documento: datos.documento,
             remember_token: ""
@@ -59,49 +63,31 @@ const profileController= {
                 {email: emailBuscar}
             ]
         }
+        perfil.findOne(filtrado)
+        .then((result) => {
 
-        // validacion de email y contraseña
-        let errors = {}
+            if (result != null) {
+                let contraseniaCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia)
+                if (contraseniaCorrecta) {
+                    /* poner en session */
+                    
+                    req.session.perfil = result.dataValues;
 
-        if (emailBuscar == undefined ) {
-            errors.message = 'El email está vacío';
-            res.locals.errors = errors;
-            return res.render('login')
-
-        } else if (contraseniaBuscar.length < 3) {
-            errors.message = 'Las contraseñas requieren mas de 3 digitos';
-            res.locals.errors = errors;
-            return res.render('login')
-        } else {
-            user.findOne(filtrado)
-                .then((result) => {
-
-                    if (result != null) {
-                        let claveCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia);
-                        if (claveCorrecta) {
-
-                            req.session.user = result.dataValues;
-
-                            if (req.body.recordarme != undefined) {
-                                res.cookie('userId', result.dataValues.id, { maxAge: 1000 * 60 * 100 })
-                            }
-
-                            return res.redirect("/")
-
-                        } else {
-                            errors.message = 'El email existe, pero la contraseña es incorrecta';
-                            res.locals.errors = errors;
-                            return res.render('login')
-                        }
-                    } else {
-                        errors.message = 'El email ingresado no existe';
-                        res.locals.errors = errors;
-                        return res.render('login')
+                    if (req.body.rememberme != undefined) {
+                        res.cookie('perfilId', result.id, {maxAge: 1000 * 60 * 15});
                     }
-                }).catch((err) => {
-                    console.log(err);
-                });   
-        }
+                   
+                     return res.redirect('/');
+                } else {
+                    return res.send("Existe el mail y pero la password es incorrecta");
+                }
+            } else {
+                return res.send("Noooo Existe el mail")
+            }
+            
+        }).catch((err) => {
+            console.log(err);
+        });
     }
 }
 module.exports = profileController;
