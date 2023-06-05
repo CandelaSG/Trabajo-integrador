@@ -51,9 +51,11 @@ const productController = {
         let busqueda = req.query.search;
         let filtrado = {
         where: [
-            {nombre: {[op.like]: "%" + busqueda + "%"},
-            descripcion: {[op.like]:  "%" + busqueda + "%"}} // Cómo agregar otra condición
-        ]}
+            {[op.or]: [
+              { nombre: { [op.like]: '%' + busqueda + '%' } },
+              { descripcion: { [op.like]: '%' + busqueda + '%' } }
+            ]}
+          ]}
         producto.findAll(filtrado)
         .then((result)=>{
             console.log (result)

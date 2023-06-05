@@ -63,31 +63,51 @@ const profileController= {
                 {email: emailBuscar}
             ]
         }
-        perfil.findOne(filtrado)
-        .then((result) => {
+        let errors = {}
 
-            if (result != null) {
-                let contraseniaCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia)
-                if (contraseniaCorrecta) {
-                    /* poner en session */
-                    
-                    req.session.perfil = result.dataValues;
+        if (emailBuscar == undefined ) {
+            errors.message = 'El email está vacío';
+            res.locals.errors = errors;
+            return res.render('login')
 
-                    if (req.body.rememberme != undefined) {
-                        res.cookie('perfilId', result.id, {maxAge: 1000 * 60 * 15});
+        } else if (contraseniaBuscar.length < 3) {
+            errors.message = 'Las contraseñas requieren mas de 3 digitos';
+            res.locals.errors = errors;
+            return res.render('login')
+        } else {
+        
+            perfil.findOne(filtrado)
+            .then((result) => {
+
+                if (result != null) {
+                    let claveCorrecta = bcrypt.compareSync(contraseniaBuscar, result.contrasenia);
+                    if (claveCorrecta) {
+                        req.session.user = result.dataValues;
+                        if (req.body.rememberme != undefined) {
+                            res.cookie('userId', result.dataValues.id, { maxAge: 1000 * 60 * 100 })
+                        }
+                        return res.redirect("/")
+
+                    } else {
+                        errors.message = 'El email existe, pero la contraseña es incorrecta';
+                        res.locals.errors = errors;
+                        return res.render('login')
                     }
-                   
-                     return res.redirect('/');
                 } else {
-                    return res.send("Existe el mail y pero la password es incorrecta");
+                    errors.message = 'El email ingresado no existe';
+                    res.locals.errors = errors;
+                    return res.render('login')
                 }
-            } else {
-                return res.send("Noooo Existe el mail")
-            }
-            
-        }).catch((err) => {
-            console.log(err);
-        });
-    }
+            }).catch((err) => {
+                console.log(err);
+            }); 
+
+        }},
+        logout: function(req, res) {
+            req.session.destroy();
+            if(req.cookies.userId != undefined){
+            res.clearCookie('userId')};
+            return res.redirect('/profile/login');
+        }
 }
 module.exports = profileController;

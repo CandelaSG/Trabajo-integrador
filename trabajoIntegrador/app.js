@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
           /* 10 */
       let idUsuarioEnCookie = req.cookies.userId;
   
-      db.User.findByPk(idUsuarioEnCookie)
+      db.Perfil.findByPk(idUsuarioEnCookie)
       .then((user) => {
         /* cargar el usuario encontrado en session */
         req.session.user = user.dataValues;

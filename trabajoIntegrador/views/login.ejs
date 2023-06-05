@@ -16,6 +16,9 @@
 
 					<article class="col-12">
 						<h2 class="products-title titleLog">Log in</h2>
+						<% if (locals.errors) { %>
+							<p style="color: red;"><%= errors.message %></p>
+						<% } %>
 					</article>
 						
 					<form action="/profile/login" method="POST" class="formLog">
