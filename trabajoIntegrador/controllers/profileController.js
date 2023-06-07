@@ -175,10 +175,14 @@ const profileController= {
 
         }},
     logout: function(req, res) {
-        req.session.destroy();
-        if(req.cookies.userId != undefined){
-        res.clearCookie('userId')};
-        return res.redirect('/profile/login');
+        if (req.session.user == undefined) {
+            return res.redirect('/');
+        } else {
+            req.session.destroy();
+            if(req.cookies.userId != undefined){
+                res.clearCookie('userId')};
+                return res.redirect('/profile/login');
+        }   
     },
     
 }

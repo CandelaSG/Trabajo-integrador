@@ -10,7 +10,8 @@ const mainController = {
             }
             };
         productos.findAll(relaciones)
-        .then (function (result) {
+        .then (function (result) { 
+            //return res.send (result)  
             return res.render('index', {
                 productosMain: result
             })

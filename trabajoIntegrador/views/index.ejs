@@ -34,7 +34,8 @@
 									<article class="product-box_data">
 										<h2><%=productosMain[i].nombre %></h2>
 										<p><%=productosMain[i].descripcion %></p>
-										<p>Comentarios: 5</p>
+										<p>Comentarios: <%=productosMain[i].comentario.length %></p>
+										<p>Creador: <%= productosMain[i].perfil.usuario %> </p>
 									</article>
 								</a>
 							</section>
@@ -61,7 +62,8 @@
 									<article class="product-box_data">
 										<h2><%=productosMain[i].nombre %></h2>
 										<p><%=productosMain[i].descripcion %></p>
-										<p>Comentarios: 5</p>
+										<p>Comentarios: <%=productosMain[i].comentario.length %></p>
+										<p>Creador: <a href="profile/<%= productosMain[i].perfil.id %>"> <%= productosMain[i].perfil.usuario %> </a></p>
 									</article>
 								</a>
 							</section>
