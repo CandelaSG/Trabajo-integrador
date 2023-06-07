@@ -15,15 +15,15 @@
 						<h2 class="products-title titleLog">Editar mi perfil</h2>
 					</article>
 
-					<form action="/profile" method="get" class="formLog">
+					<form action="/profile/edit" method="POST" class="formLog">
 						<article class="inputForm">
 							<i class="fa-solid fa-envelope fa-xl icon"></i>
-							<input type="email" name="email" placeholder="Email">
+							<input type="email" name="email" placeholder="Email" value="<%= perfil.email %>">
 						</article >
 
 						<article  class="inputForm">
 							<i class="fa-solid fa-user fa-xl icon"></i>
-							<input type="text" name="usuario" placeholder="Usuario" class="text">
+							<input type="text" name="usuario" placeholder="Usuario" class="text" value="<%= perfil.usuario %>">
 						</article >
 
 						<article  class="inputForm">
@@ -32,17 +32,17 @@
 						</article >
 
 						<article  class="inputForm">
-							<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
+							<input type="date" name="fechaDeNacimiento" placeholder="Fecha de Nacimiento" value="<%= perfil.fecha_nacimiento %>">
 						</article >
 
 						<article  class="inputForm">
 							<i class="fa-solid fa-address-card fa-xl icon"></i>
-							<input type="number" name="documento" placeholder="Número de Documento">
+							<input type="number" name="documento" placeholder="Número de Documento" value="<%= perfil.documento %>"> 
 						</article >
 
 						<article  class="inputForm">
 							<i class="fa-regular fa-image fa-xl icon"></i>
-							<input type="text" name="fotodeperfil" placeholder="Foto de Perfil" class="text">
+							<input type="text" name="fotodeperfil" placeholder="Foto de Perfil" class="text" value="<%= perfil.foto%>">
 						</article >
 
 						<button type="submit" class="cambios">Guardar cambios</button>

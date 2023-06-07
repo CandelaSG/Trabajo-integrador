@@ -38,10 +38,30 @@ const profileController= {
 
     },
     edit : function (req, res) {
-        return res.render('profile-edit', {
-            profile: data.usuario,
-            productos: data.productos
-        })
+        let perfilId = req.session.user.id;
+        perfil.findByPk(perfilId)
+        .then((resultado) => {
+          console.log(resultado)
+          return res.render("profile-edit", {perfil: resultado})
+        }).catch((err) => {
+          console.log(err)
+        });
+    },
+    editPost: function (req,res) {
+        let id = req.session.user.id;
+        let infoPerfil = req.body;
+        let filtrado = {
+          where : [
+            {id: id}
+          ]
+        }
+        perfil.update(infoPerfil, filtrado)
+        .then((resultado) => {
+          return res.redirect("/profile")
+        }).catch((err) => {
+          console.log(err);
+        });
+      
     },
     register: function (req, res) {
         return res.render('register', {
