@@ -96,20 +96,32 @@ const productController = {
     
     },
     storeComentario: (req, res) =>{
-     let coment = {
+      let errors = {}
+      let id = ''
+      if (req.session.user != undefined) {
+        id = req.session.user.id
+      } 
+      
+      let coment = {
         texto: req.body.comentario,
         id_producto: req.params.id,
-        id_perfil: 1 // cambiar esto por el id del usuario en session
+        id_perfil: id 
 
      }
-
+    if (id == '' ) {
+      errors.message = 'Debes loguearte para comentar :)';
+      res.locals.errors = errors;
+      return res.render(`login`)
+    }
+    else {
     comentario.create(coment)
      .then( function(resultado){
-         return res.redirect(`/product/id/${req.params.id}`)
+         return res.redirect(`/product/id/${id}`)
         })
      .catch (function(err){
         console.log(err)
     });
     }
+  }
 };
 module.exports = productController;

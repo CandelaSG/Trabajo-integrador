@@ -2,14 +2,40 @@ const db = require('../database/models');
 const data = require('../db/data')
 const bcrypt = require('bcryptjs');
 const perfil = db.Perfil;
+const producto = db.Producto;
+const comentario = db.Comentario;
+
 
 const profileController= {
     show : function (req, res) {
-        return res.render('profile', {
-            profile: data.usuario,
-            productos: data.productos,
-            cantComentarios: data.comentarios.length
+        // Cuando no tiene productos FALTA
+
+        /* Relaciones */
+        let relaciones = {
+        include: {
+            all:true,
+            nested: true
+        }
+        };
+        /* Productos del usuario */
+        let idEnSesion = req.session.user.id;
+        console.log(idEnSesion);
+        
+        let filtrado = {where:[
+            {id_perfil : idEnSesion}
+        ]}
+
+        /* Buscar los productos del usuario en sesión */
+        producto.findAll(filtrado, relaciones)
+        .then(function (resultado) {
+            return res.render("profile", {
+            producto: resultado,
+            });
         })
+        .catch(function (error) {
+            console.log(error);
+        });
+
     },
     edit : function (req, res) {
         return res.render('profile-edit', {
@@ -23,29 +49,48 @@ const profileController= {
         })
     },
     store: function(req, res) {
-        let datos = req.body;
-        let foto_perfil_store = '/images/users/perfilDefault.png';
-        if (datos.foto_perfil != "") {
-            foto_perfil_store = datos.foto_perfil
-        }
-        let guardarPerfil = {
-            usuario: datos.usuario,
-            email: datos.email,
-            contrasenia: bcrypt.hashSync(datos.contrasenia, 10),
-            foto_perfil: foto_perfil_store, // opcional
-            fecha_nacimiento: datos.fecha_nacimiento,
-            documento: datos.documento,
-            remember_token: ""
-        };
+        let errors = {};
 
-        db.Perfil.create(guardarPerfil)
-        .then(function(result) {
-            return res.redirect('/profile/login');
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-        
+        if (req.body.email == "") {
+            errors.message = 'El campo de email no puede estar vacío';
+            res.locals.errors = errors;
+            return res.render('register')
+
+        } else if (req.body.contrasenia == ''){
+            errors.message= 'La contraseña no puede ser vacía';
+            res.locals.errors = errors;
+            return res.render('register')
+
+        }else if (req.body.contrasenia.length <=3){
+            errors.message= 'La contraseña debe tener más de 3 caracteres';
+            res.locals.errors = errors;
+            return res.render('register')
+
+        } else{
+            let datos = req.body;
+            let foto_perfil_store = '/images/users/perfilDefault.png';
+            if (datos.foto_perfil != "") {
+                foto_perfil_store = datos.foto_perfil
+            }
+            
+            let guardarPerfil = {
+                usuario: datos.usuario,
+                email: datos.email,
+                contrasenia: bcrypt.hashSync(datos.contrasenia, 10),
+                foto_perfil: foto_perfil_store, // opcional
+                fecha_nacimiento: datos.fecha_nacimiento,
+                documento: datos.documento,
+                remember_token: ""
+            };
+
+            db.Perfil.create(guardarPerfil)
+            .then(function(result) {
+                return res.redirect('/profile/login');
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
     },
     login : function (req, res) {
         if (req.session.user != undefined) {
@@ -103,11 +148,11 @@ const profileController= {
             }); 
 
         }},
-        logout: function(req, res) {
-            req.session.destroy();
-            if(req.cookies.userId != undefined){
-            res.clearCookie('userId')};
-            return res.redirect('/profile/login');
-        }
+    logout: function(req, res) {
+        req.session.destroy();
+        if(req.cookies.userId != undefined){
+        res.clearCookie('userId')};
+        return res.redirect('/profile/login');
+    }
 }
 module.exports = profileController;
