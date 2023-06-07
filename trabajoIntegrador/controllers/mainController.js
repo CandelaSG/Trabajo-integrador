@@ -3,21 +3,21 @@ const db = require('../database/models')
 const productos= db.Producto;
 const mainController = {
     index : function (req, res) {
-        productos.findAll()
+        let relaciones = {
+            include: {
+                all:true,
+                nested: true
+            }
+            };
+        productos.findAll(relaciones)
         .then (function (result) {
             return res.render('index', {
-                productosMain: result,
-                cantComentarios: data.comentarios.length //cambiar
+                productosMain: result
             })
         })
         .catch(function(err){
             console.log(err)
         })
-  /*lo anterior
-         return res.render('index', {
-            productosMain: data.productos,
-            cantComentarios: data.comentarios.length
-        }) */
     }
 };
 

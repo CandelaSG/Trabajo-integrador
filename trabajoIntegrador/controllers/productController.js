@@ -51,6 +51,12 @@ const productController = {
     },
     search: (req,res)=>{
         let busqueda = req.query.search;
+        let relaciones = {
+          include: {
+              all:true,
+              nested: true
+          }
+          };
         let filtrado = {
         where: [
             {[op.or]: [
@@ -58,9 +64,10 @@ const productController = {
               { descripcion: { [op.like]: '%' + busqueda + '%' } }
             ]}
           ]}
-        producto.findAll(filtrado)
+        producto.findAll(filtrado,relaciones)
         .then((result)=>{
             console.log (result)
+            console.log(result);
             return res.render("search-results", {
                 busqueda: busqueda,
                 listaProductos:result
@@ -121,7 +128,8 @@ const productController = {
     else {
     comentario.create(coment)
      .then( function(resultado){
-         return res.redirect(`/product/id/${id}`)
+      let id_producto = req.params.id
+         return res.redirect(`/product/id/${id_producto}`)
         })
      .catch (function(err){
         console.log(err)
