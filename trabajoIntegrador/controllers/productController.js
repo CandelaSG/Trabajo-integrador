@@ -26,9 +26,11 @@ const productController = {
         });
 },
     add : function (req, res) {
-        return res.render('product-add', {
-            profile: data.usuario
-        })
+      if (req.session.user == undefined) {
+        return res.redirect('/');
+      } else {
+        return res.render('product-add');
+      }      
     },
     storeProduct: (req,res)=>{
         let infoProducto = req.body;
@@ -69,6 +71,9 @@ const productController = {
         })
     },
     formUpdate:(req,res) => {
+      if (req.session.user == undefined) {
+        return res.redirect('/');
+      } else {
         let productId = req.params.id;
         producto.findByPk(productId)
         .then((resultado) => {
@@ -77,9 +82,9 @@ const productController = {
         }).catch((err) => {
           console.log(err)
         });
-        
+      }     
     },
-    update: (req, res) =>{
+    updatePost: (req, res) =>{
       let id = req.params.id;
       let infoProd = req.body;
       let filtrado = {

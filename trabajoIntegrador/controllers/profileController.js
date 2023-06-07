@@ -38,14 +38,18 @@ const profileController= {
 
     },
     edit : function (req, res) {
-        let perfilId = req.session.user.id;
-        perfil.findByPk(perfilId)
-        .then((resultado) => {
-          console.log(resultado)
-          return res.render("profile-edit", {perfil: resultado})
-        }).catch((err) => {
-          console.log(err)
-        });
+        if (req.session.user == undefined){
+            return res.redirect('/')
+        } else {
+            let perfilId = req.session.user.id;
+            perfil.findByPk(perfilId)
+            .then((resultado) => {
+            console.log(resultado)
+            return res.render("profile-edit", {perfil: resultado})
+            }).catch((err) => {
+            console.log(err)
+            });
+        }
     },
     editPost: function (req,res) {
         let id = req.session.user.id;
@@ -64,9 +68,11 @@ const profileController= {
       
     },
     register: function (req, res) {
-        return res.render('register', {
-            /* usuarioMain: data.usuario */
-        })
+        if (req.session.user != undefined){
+            return res.redirect('/')
+        } else {
+            return res.render('register')
+        }
     },
     store: function(req, res) {
         let errors = {};
@@ -173,6 +179,7 @@ const profileController= {
         if(req.cookies.userId != undefined){
         res.clearCookie('userId')};
         return res.redirect('/profile/login');
-    }
+    },
+    
 }
 module.exports = profileController;

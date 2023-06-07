@@ -14,7 +14,10 @@
 			<section class="containerProducts products-wrapper">
 
 				<article class="d-flex align-items-center">
-					<h2 class="products-title"><%= producto.nombre %>       <a href="/product/update/<%= producto.id %>"> <i class="fa-regular fa-pen-to-square"></i></a></h2> 
+					<h2 class="products-title"><%= producto.nombre %>     
+						<% if (locals.user != undefined && locals.user.id == producto.id_perfil) { %>
+						<a href="/product/update/<%= producto.id %>"> <i class="fa-regular fa-pen-to-square"></i></a>
+						<% } %>  </h2> 
 				</article>
 
 				<article class="product-detail">

@@ -8,7 +8,7 @@ router.get('/add', productController.add);
 router.post('/add', productController.storeProduct);
 
 router.get("/update/:id", productController.formUpdate);
-router.post("/update/:id", productController.update);
+router.post("/update/:id", productController.updatePost);
 
 router.get('/search', productController.search);
 
