@@ -68,6 +68,7 @@ const productController = {
         .then((result)=>{
             console.log (result)
             console.log(result);
+            // return res.send(result)
             return res.render("search-results", {
                 busqueda: busqueda,
                 listaProductos:result
