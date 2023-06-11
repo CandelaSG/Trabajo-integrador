@@ -19,8 +19,6 @@ const profileController= {
         };
         /* Productos del usuario */
         let idEnSesion = req.session.user.id;
-        console.log(idEnSesion);
-        
         let filtrado = {where:[
             {id_perfil : idEnSesion}
         ]}
@@ -52,8 +50,8 @@ const profileController= {
         }
     },
     editPost: function (req,res) {
-        let id = req.session.user.id;
         let infoPerfil = req.body;
+        let id = req.session.user.id;
         let filtrado = {
           where : [
             {id: id}

@@ -7,11 +7,12 @@ const mainController = {
             include: {
                 all:true,
                 nested: true
-            }
-            };
+            }};
+        let orden= {order:[
+            ["created_at", 'DESC' ]
+          ]}
         productos.findAll(relaciones)
-        .then (function (result) { 
-            //return res.send (result)  
+        .then (function (result) {   
             return res.render('index', {
                 productosMain: result
             })

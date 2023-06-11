@@ -37,9 +37,9 @@ const productController = {
         let guardarProducto = {
             nombre: infoProducto.nombre,
             descripcion: infoProducto.descripcion,
-            foto: infoProducto.foto 
+            foto: infoProducto.foto,
+            id_perfil: req.session.user.id
         };
-
         producto.create(guardarProducto)
         .then((resultado)=>{
             return res.redirect('/profile');
@@ -55,20 +55,19 @@ const productController = {
           include: {
               all:true,
               nested: true
-          }
-          };
+          }};
         let filtrado = {
         where: [
             {[op.or]: [
               { nombre: { [op.like]: '%' + busqueda + '%' } },
               { descripcion: { [op.like]: '%' + busqueda + '%' } }
             ]}
-          ]}
+          ],
+        order:[
+          ["created_at", 'DESC' ]
+        ]}
         producto.findAll(filtrado,relaciones)
         .then((result)=>{
-            console.log (result)
-            console.log(result);
-            // return res.send(result)
             return res.render("search-results", {
                 busqueda: busqueda,
                 listaProductos:result
@@ -98,15 +97,13 @@ const productController = {
       let filtrado = {
         where : [
           {id: id}
-        ]
-      }
+        ]}
       producto.update(infoProd, filtrado)
       .then((resultado) => {
         return res.redirect("/product/id/" + id )
       }).catch((err) => {
         console.log(err);
       });
-    
     },
     storeComentario: (req, res) =>{
       let errors = {}
@@ -121,13 +118,10 @@ const productController = {
         id_perfil: id 
 
      }
-    if (id == '' ) {
-      errors.message = 'Debes loguearte para comentar :)';
-      res.locals.errors = errors;
-      return res.render(`login`)
-    }
-    else {
-    comentario.create(coment)
+     let orden= {order:[
+      ["created_at", 'DESC' ]
+    ]}
+    comentario.create(coment, orden)
      .then( function(resultado){
       let id_producto = req.params.id
          return res.redirect(`/product/id/${id_producto}`)
@@ -135,7 +129,39 @@ const productController = {
      .catch (function(err){
         console.log(err)
     });
-    }
+    
+  },
+  eliminarProducto: (req, res) => {
+      let idEliminar = req.body.id;
+      filtrado = {
+        where: [
+          {id:idEliminar}]
+        }
+      producto.destroy (filtrado)
+      .then((resultado) => {
+        return res.redirect("/profile");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 };
 module.exports = productController;
+
+
+/* 
+Cmentario
+if (id == '' ) {
+  errors.message = 'Debes loguearte para comentar :)';
+  res.locals.errors = errors;
+  return res.render(`login`)
+}
+else {
+comentario.create(coment, orden)
+ .then( function(resultado){
+  let id_producto = req.params.id
+     return res.redirect(`/product/id/${id_producto}`)
+    })
+ .catch (function(err){
+    console.log(err)
+}); */

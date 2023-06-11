@@ -476,7 +476,11 @@ h2{
 .comments .user{
   font-size: 1.7em;
 }
-
+.nocomentario{
+  font-size: 1.8em;
+  text-align: center;
+  color:rgb(209, 0, 0)
+}
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;

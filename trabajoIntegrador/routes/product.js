@@ -12,5 +12,7 @@ router.post("/update/:id", productController.updatePost);
 
 router.get('/search', productController.search);
 
-router.post('/comentario/:id', productController.storeComentario)
+router.post('/comentario/:id', productController.storeComentario);
+
+router.post('/eliminar', productController.eliminarProducto);
 module.exports = router;

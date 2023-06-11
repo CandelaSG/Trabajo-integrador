@@ -17,7 +17,12 @@
 					<h2 class="products-title"><%= producto.nombre %>     
 						<% if (locals.user != undefined && locals.user.id == producto.id_perfil) { %>
 						<a href="/product/update/<%= producto.id %>"> <i class="fa-regular fa-pen-to-square"></i></a>
-						<% } %>  </h2> 
+						<form action="/product/eliminar" method="POST">
+							<input type="text" hidden name="id" id="" value="<%= producto.id %>">
+							<input class="btn btnDelete" value="Eliminar" type="submit">
+						</form>
+						<% } %>  
+						</h2> 
 				</article>
 
 				<article class="product-detail">
@@ -43,11 +48,15 @@
 									</article>
 								<% } %>
 							</section>
-
 							<form class="form" action="/product/comentario/<%= producto.id %>" method="POST">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
-								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-							</form>
+							<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
+							<% if (locals.user != undefined) { %>
+									<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+								</form>							 
+							
+							<% } else { %>
+								<p class="nocomentario" style="color: red;">Debe estar logueado para comentar</p>
+							<% } %>
 							<hr>
 
 						</article>
