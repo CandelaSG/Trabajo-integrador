@@ -10,21 +10,25 @@
 		<section class="info-usuario container products-wrapper">
 			<section class="row">
 				<article class="img-container offset-3 col-2">
-					<img src="<%= locals.user.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
+					<img src="<%= perfil.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
 				</article>
 				<article class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title"><%= locals.user.usuario %>
-							<a href="/profile/edit">
-								<i class="fas fa-cog"></i>
-							</a>
+						<h1 class="main-title"><%= perfil.usuario %>
+							<% if (locals.user.id == perfil.id) { %>
+								<a href="/profile/edit">
+									<i class="fas fa-cog"></i>
+								</a>
+							<% }  else { %>
+								<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+							<% } %>
 						</h1>
-						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+						
 					</div>
 					<div>
 						<ul>
-							<li><%= locals.user.email %></li>
-							<li><%= producto.length %> productos</li>
+							<li><%= perfil.email %></li>
+							<li><%= perfil.producto.length %> productos</li>
 							<li>200 seguidores</li>
 							<li>300 comentarios</li>
 						</ul>
@@ -42,19 +46,19 @@
 				</article>
 
 				<!-- Show mis productos -->
-				<% if (producto.length > 0) { %>
-					<% for( let i = 0; i < producto.length; i++ ) { %>
+				<% if (perfil.producto.length > 0) { %>
+					<% for( let i = 0; i < perfil.producto.length; i++ ) { %>
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">
-								<a href="product/id/<%=producto[i].id%>">
+								<a href="/product/id/<%=perfil.producto[i].id%>">
 									<figure class="product-box_image">
-										<img src=<%=producto[i].foto %> alt=<%=producto[i].nombre %>>
+										<img src=<%=perfil.producto[i].foto %> alt=<%=perfil.producto[i].nombre %>>
 									</figure>
 									
 									<article class="product-box_data">
-										<h2><%=producto[i].nombre %></h2>
-										<p><%=producto[i].descripcion %></p>
-										<p>Comentarios: 5</p>
+										<h2><%=perfil.producto[i].nombre %></h2>
+										<p><%=perfil.producto[i].descripcion %></p>
+										<p>Comentarios: <%=perfil.producto[i].comentario.length %></p>
 									</article>
 								</a>
 							</section>

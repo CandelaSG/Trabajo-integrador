@@ -22,10 +22,10 @@
 		<nav>
 			<ul class="listaLogueado">
 				<li class="perfil">
-					<a href="/profile"> 
+					<a href="/profile/id/<%= locals.user.id %>"> 
 						<img class="imgPerfil" src="<%= locals.user.foto_perfil %>" alt="Foto de perfil de <%= locals.user.usuario %>">
 					</a>
-					<a href="/profile"> ¡Hola <%= locals.user.usuario %>!</a>
+					<a href="/profile/id/<%= locals.user.id %>"> ¡Hola <%= locals.user.usuario %>!</a>
 				</li> 
 				<li class="login">
 					<form action="/profile/logout" method="POST">

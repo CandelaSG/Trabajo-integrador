@@ -17,6 +17,7 @@ const productController = {
         /* Encontrar el producto con la PK */
         producto.findByPk(id, relaciones)
         .then(function (resultado) {
+          //res.send(resultado)
             return res.render("product", {
             producto: resultado,
             });
@@ -42,7 +43,7 @@ const productController = {
         };
         producto.create(guardarProducto)
         .then((resultado)=>{
-            return res.redirect('/profile');
+            return res.redirect('/profile/id/' + req.session.user.id);
         })
         .catch((err)=>{
             console.log(err);
@@ -51,23 +52,23 @@ const productController = {
     },
     search: (req,res)=>{
         let busqueda = req.query.search;
-        let relaciones = {
-          include: {
-              all:true,
-              nested: true
-          }};
+
         let filtrado = {
-        where: [
-            {[op.or]: [
-              { nombre: { [op.like]: '%' + busqueda + '%' } },
-              { descripcion: { [op.like]: '%' + busqueda + '%' } }
-            ]}
+          include: {
+            all:true,
+            nested: true
+          },
+          where: [
+              {[op.or]: [
+                { nombre: { [op.like]: '%' + busqueda + '%' } },
+                { descripcion: { [op.like]: '%' + busqueda + '%' } }
+              ]}
           ],
-        order:[
-          ["created_at", 'DESC' ]
-        ]}
-        producto.findAll(filtrado,relaciones)
+          order:[["created_at", 'DESC' ]]
+          }
+        producto.findAll(filtrado)
         .then((result)=>{
+          //res.send(result)
             return res.render("search-results", {
                 busqueda: busqueda,
                 listaProductos:result
@@ -139,7 +140,7 @@ const productController = {
         }
       producto.destroy (filtrado)
       .then((resultado) => {
-        return res.redirect("/profile");
+        return res.redirect("/profile/id/" + req.session.user.id);
       })
       .catch((err) => {
         console.log(err);

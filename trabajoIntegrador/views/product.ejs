@@ -39,10 +39,10 @@
 							<section class="comments">
 								<% for( let i = 0; i < producto.comentario.length; i++ ) { %>
 									<article>
-										<img src=<%= producto.comentario[i].perfil.foto_perfil %> alt="Foto perfil">
+										<a href="/profile/id/<%= producto.comentario[i].perfil.id%>"><img src=<%= producto.comentario[i].perfil.foto_perfil %> alt="Foto perfil"></a>
 										<div class="data">
 											<p class="user">
-											<strong> <a href="/profile"><%= producto.comentario[i].perfil.usuario %>: </a> </strong>
+											<strong> <a href="/profile/id/<%= producto.comentario[i].perfil.id%>"><%= producto.comentario[i].perfil.usuario %>: </a> </strong>
 											<%= producto.comentario[i].texto %></p>
 										</div>
 									</article>

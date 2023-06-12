@@ -9,24 +9,24 @@ const comentario = db.Comentario;
 const profileController= {
     show : function (req, res) {
         // Cuando no tiene productos FALTA
-
-        /* Relaciones */
-        let relaciones = {
+        let id = req.params.id
+        
+        /* Productos del usuario */
+        // let idEnSesion = req.session.user.id;
+         relaciones = {
         include: {
             all:true,
             nested: true
-        }
-        };
-        /* Productos del usuario */
-        let idEnSesion = req.session.user.id;
-        let filtrado = {where:[
-            {id_perfil : idEnSesion}
-        ]}
+        }}
         /* Buscar los productos del usuario en sesión */
-        producto.findAll(filtrado, relaciones)
+        perfil.findByPk(id, relaciones)
         .then(function (resultado) {
+            //res.send(resultado)
+            if(resultado.dataValues.id === req.session.user.id) {
+                res.locals.user = resultado.dataValues
+            }
             return res.render("profile", {
-            producto: resultado,
+            perfil: resultado,
             });
         })
         .catch(function (error) {
@@ -34,68 +34,6 @@ const profileController= {
         });
 
     },
-    /* showInfo : function (req, res) {
-        // let idEnSesion = req.session.user.id;
-        let idUrl = req.params.id;
- 
-        let filtrado = {
-            where:[{id_perfil : idUrl}],
-            include: { all:true, nested: true}
-        };
- 
- 
-        perfil.findByPk(idUrl)
-        .then(function (resultadoPerfil) {
-            resultadoPerfil = resultadoPerfil.dataValues;
-            
-            producto.findAll(filtrado)
-            .then(function (resultadoProducto) {
-                resultadoProducto = resultadoProducto.dataValues;
-                return resultadoProducto
-            })
-
-            return resultadoPerfil,resultadoProducto
-        })
-
-        .then(function (resultadoPerfil,resultadoProducto) {
-            console.log(resultadoProducto);
-            return res.render("profile", {
-                producto: resultadoProducto,
-                perfil: resultadoPerfil
-                });
-        }) 
-        .catch(function (error) {
-            console.log(error);
-        }); */
-
-
-        /* hacerAlgoCritico()
-        .then(resultado => hacerAlgoOpcional()
-        .then(resultadoOpcional => hacerAlgoSuper(resultadoOpcional))
-        .catch(e => {})) // Ignorar si hacerAlgoOpcional falla.
-        .then(() => masAsuntosCriticos())
-        .catch(e => console.log("Acción crítica fallida: " + e.message)); */
- 
- 
- 
-        /* let filtrado = {
-            where:[{id_perfil : idUrl}],
-            include: { all:true, nested: true}
-        }
-        let productos =
-            producto.findAll(filtrado)
-            .then(function (resultado) {
-                return resultado
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-         */
-        /* res.render("profile1", {
-            producto: productos,
-            perfil : usuario
-            }); 
-         },*/
        
     
     edit : function (req, res) {
@@ -122,7 +60,9 @@ const profileController= {
         }
         perfil.update(infoPerfil, filtrado)
         .then((resultado) => {
-          return res.redirect("/profile")
+            
+            
+          return res.redirect("/profile/id/" + id)
         }).catch((err) => {
           console.log(err);
         });
