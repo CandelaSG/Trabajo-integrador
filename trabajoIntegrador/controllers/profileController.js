@@ -22,15 +22,20 @@ const profileController= {
         perfil.findByPk(id, relaciones)
         .then(function (resultado) {
             //res.send(resultado)
-            if(resultado.dataValues.id === req.session.user.id) {
-                res.locals.user = resultado.dataValues
+
+            let miSession = req.session.user;
+            let elMismoUsuario = false
+            if(miSession != undefined && id == req.session.user.id) {
+                res.locals.user = resultado.dataValues  
+                elMismoUsuario = true 
             }
             return res.render("profile", {
-            perfil: resultado,
-            });
+                perfil: resultado, userCorrecto: elMismoUsuario
+                });
         })
         .catch(function (error) {
             console.log(error);
+           
         });
 
     },
@@ -60,7 +65,6 @@ const profileController= {
         }
         perfil.update(infoPerfil, filtrado)
         .then((resultado) => {
-            
             
           return res.redirect("/profile/id/" + id)
         }).catch((err) => {

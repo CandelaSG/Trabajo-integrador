@@ -3,7 +3,12 @@
 <!-- Include Head -->
 <%- include('./partials/head') %>
 <body>
-<%- include('./partials/headerLogueado') %>
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado')  %> 
+<% } else{%>
+		<%- include('./partials/header')  %> 
+<% } %> 
+
 
 	<main>
 		<!-- Datos del usuario -->
@@ -15,7 +20,7 @@
 				<article class="data-container col-6">
 					<div class="d-flex align-items-center ">
 						<h1 class="main-title"><%= perfil.usuario %>
-							<% if (locals.user.id == perfil.id) { %>
+							<% if (userCorrecto) { %>
 								<a href="/profile/edit">
 									<i class="fas fa-cog"></i>
 								</a>
