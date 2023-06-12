@@ -22,7 +22,6 @@ const profileController= {
         let filtrado = {where:[
             {id_perfil : idEnSesion}
         ]}
-
         /* Buscar los productos del usuario en sesión */
         producto.findAll(filtrado, relaciones)
         .then(function (resultado) {
@@ -35,8 +34,8 @@ const profileController= {
         });
 
     },
-    showInfo : function (req, res) {
-        /* let idEnSesion = req.session.user.id; */
+    /* showInfo : function (req, res) {
+        // let idEnSesion = req.session.user.id;
         let idUrl = req.params.id;
  
         let filtrado = {
@@ -67,7 +66,7 @@ const profileController= {
         }) 
         .catch(function (error) {
             console.log(error);
-        });
+        }); */
 
 
         /* hacerAlgoCritico()
@@ -95,9 +94,10 @@ const profileController= {
         /* res.render("profile1", {
             producto: productos,
             perfil : usuario
-            }); */
+            }); 
+         },*/
        
-    }, 
+    
     edit : function (req, res) {
         if (req.session.user == undefined){
             return res.redirect('/')

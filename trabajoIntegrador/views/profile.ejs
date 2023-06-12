@@ -10,11 +10,11 @@
 		<section class="info-usuario container products-wrapper">
 			<section class="row">
 				<article class="img-container offset-3 col-2">
-					<img src="<%= perfil.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
+					<img src="<%= locals.user.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
 				</article>
 				<article class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title"><%= perfil.usuario %>
+						<h1 class="main-title"><%= locals.user.usuario %>
 							<a href="/profile/edit">
 								<i class="fas fa-cog"></i>
 							</a>
@@ -23,7 +23,7 @@
 					</div>
 					<div>
 						<ul>
-							<li><%= perfil.email %></li>
+							<li><%= locals.user.email %></li>
 							<li><%= producto.length %> productos</li>
 							<li>200 seguidores</li>
 							<li>300 comentarios</li>
@@ -46,14 +46,14 @@
 					<% for( let i = 0; i < producto.length; i++ ) { %>
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">
-								<a href="product/id/<%=producto[i].Producto.dataValues.id%>">
+								<a href="product/id/<%=producto[i].id%>">
 									<figure class="product-box_image">
-										<img src=<%=producto[i].foto %> alt=<%=producto[i].Producto.dataValues.nombre %>>
+										<img src=<%=producto[i].foto %> alt=<%=producto[i].nombre %>>
 									</figure>
 									
 									<article class="product-box_data">
-										<h2><%=producto[i].Producto.dataValues.nombre %></h2>
-										<p><%=producto[i].Producto.dataValues.descripcion %></p>
+										<h2><%=producto[i].nombre %></h2>
+										<p><%=producto[i].descripcion %></p>
 										<p>Comentarios: 5</p>
 									</article>
 								</a>
