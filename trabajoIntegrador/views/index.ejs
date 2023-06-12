@@ -35,7 +35,7 @@
 										<h2><%=productosMain[i].nombre %></h2>
 										<p><%=productosMain[i].descripcion %></p>
 										<p>Comentarios: <%=productosMain[i].comentario.length %></p>
-										<p>Creador: <%= productosMain[i].perfil.usuario %> </p>
+										<p>Creador: <a href="profile/id/<%= productosMain[i].perfil.id %>"> <%= productosMain[i].perfil.usuario %> </a></p>
 									</article>
 								</a>
 							</section>
@@ -63,7 +63,7 @@
 										<h2><%=productosMain[i].nombre %></h2>
 										<p><%=productosMain[i].descripcion %></p>
 										<p>Comentarios: <%=productosMain[i].comentario.length %></p>
-										<p>Creador: <a href="profile/<%= productosMain[i].perfil.id %>"> <%= productosMain[i].perfil.usuario %> </a></p>
+										<p>Creador: <a href="profile/id/<%= productosMain[i].perfil.id %>"> <%= productosMain[i].perfil.usuario %> </a></p>
 									</article>
 								</a>
 							</section>

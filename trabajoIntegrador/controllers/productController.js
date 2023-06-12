@@ -131,7 +131,7 @@ const productController = {
     });
     
   },
-  eliminarProducto: (req, res) => {
+    eliminarProducto: (req, res) => {
       let idEliminar = req.body.id;
       filtrado = {
         where: [

@@ -1,17 +1,16 @@
 const data = require('../db/data')
 const db = require('../database/models')
 const productos= db.Producto;
+
 const mainController = {
     index : function (req, res) {
-        let relaciones = {
-            include: {
-                all:true,
-                nested: true
-            }};
-        let orden= {order:[
-            ["created_at", 'DESC' ]
-          ]}
-        productos.findAll(relaciones)
+
+        let filtrado = {
+            order:[ ["created_at", 'DESC' ]], 
+            include: { all:true, nested: true}
+        };
+        
+        productos.findAll(filtrado)
         .then (function (result) {   
             return res.render('index', {
                 productosMain: result
