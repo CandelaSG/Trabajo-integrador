@@ -225,6 +225,16 @@ h2{
   font-weight: 400;
   color: var(--gray);
 }
+.titleProd{
+  display: flex;
+  align-items: center;
+}
+.iconProd{
+  padding-left: 10px;
+}
+.iconProd:hover{
+ color: #1f1d48;
+}
 
 .product-box {
   background-color: #ffffff;
@@ -236,6 +246,14 @@ h2{
 
 .product-box a {
   display: block;
+}
+.creador{
+  font-size: 15px;
+  padding-left: 35px;
+  color: #666666;
+}
+.creador a:hover{
+  text-decoration: underline;
 }
 
 .product-box_image {
@@ -309,6 +327,14 @@ h2{
   transform: rotate(360deg);
   box-shadow: 0 0 5px var(--green);
 }
+
+.buttonEliminar{
+  background-color: transparent;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+}
+
 
 /*====== Footer ======*/
 .main-footer {
@@ -527,7 +553,7 @@ textarea.form-input {
   display: flex;
   justify-content: center;
   width: 30vw;
-  height: 35vh;
+  height: 40vh;
   border-radius: 5%;
   
 }

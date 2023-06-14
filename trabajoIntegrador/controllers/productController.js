@@ -119,10 +119,8 @@ const productController = {
         id_perfil: id 
 
      }
-     let orden= {order:[
-      ["created_at", 'DESC' ]
-    ]}
-    comentario.create(coment, orden)
+     
+    comentario.create(coment)
      .then( function(resultado){
       let id_producto = req.params.id
          return res.redirect(`/product/id/${id_producto}`)

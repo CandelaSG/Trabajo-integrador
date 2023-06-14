@@ -16,7 +16,7 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING(100),
         },
         foto_perfil: {
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING(500),
         },
         fecha_nacimiento: {
             type: dataTypes.DATE,

@@ -14,12 +14,14 @@
 			<section class="containerProducts products-wrapper">
 
 				<article class="d-flex align-items-center">
-					<h2 class="products-title"><%= producto.nombre %>     
+					<h2 class="products-title titleProd"><%= producto.nombre %>     
 						<% if (locals.user != undefined && locals.user.id == producto.id_perfil) { %>
-						<a href="/product/update/<%= producto.id %>"> <i class="fa-regular fa-pen-to-square"></i></a>
+						<a href="/product/update/<%= producto.id %>"> <i class="fa-regular fa-pen-to-square iconProd"></i></a>
+
 						<form action="/product/eliminar" method="POST">
 							<input type="text" hidden name="id" id="" value="<%= producto.id %>">
-							<input class="btn btnDelete" value="Eliminar" type="submit">
+							<button type="submit" class="buttonEliminar" ><i class="fa-regular fa-trash-can iconProd iconTash fa-xl"></i></button>
+							<!-- <input class="btn btnDelete"type="submit">  -->
 						</form>
 						<% } %>  
 						</h2> 
@@ -28,7 +30,10 @@
 				<article class="product-detail">
 					<section class="row">
 						<article class="col-12 col-lg-8 product-detail-info">
+							<p class="creador">Creado por:<strong> <a href="/profile/id/<%= producto.perfil.id %>"> <%= producto.perfil.usuario %> </a></strong></p>
+
 							<img src=<%= producto.foto %>  alt=<%= producto.nombre %> class="product-detail-img">
+							
 							<p class="product-detail-description">
 								<%= producto.descripcion %>
 							</p>

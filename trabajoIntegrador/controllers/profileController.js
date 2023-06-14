@@ -8,26 +8,20 @@ const comentario = db.Comentario;
 
 const profileController= {
     show : function (req, res) {
-        // Cuando no tiene productos FALTA
-        let id = req.params.id
+        let id = req.params.id;
+    
+        let relaciones = { include: { all:true,nested: true}};
         
-        /* Productos del usuario */
-        // let idEnSesion = req.session.user.id;
-         relaciones = {
-        include: {
-            all:true,
-            nested: true
-        }}
         /* Buscar los productos del usuario en sesión */
         perfil.findByPk(id, relaciones)
         .then(function (resultado) {
-            //res.send(resultado)
 
             let miSession = req.session.user;
-            let elMismoUsuario = false
+            let elMismoUsuario = false;
+
             if(miSession != undefined && id == req.session.user.id) {
-                res.locals.user = resultado.dataValues  
-                elMismoUsuario = true 
+                res.locals.user = resultado.dataValues;
+                elMismoUsuario = true;
             }
             return res.render("profile", {
                 perfil: resultado, userCorrecto: elMismoUsuario
@@ -39,11 +33,10 @@ const profileController= {
         });
 
     },
-       
-    
     edit : function (req, res) {
         if (req.session.user == undefined){
             return res.redirect('/')
+
         } else {
             let perfilId = req.session.user.id;
             perfil.findByPk(perfilId)
@@ -81,6 +74,23 @@ const profileController= {
     },
     store: function(req, res) {
         let errors = {};
+
+        let emailBuscar = req.body.email;
+        let filtrado = {
+           where:[{email:emailBuscar}]
+        }
+        
+       perfil.findOne(filtrado)
+       .then(function (resultado) {
+           if (resultado != null) {
+               errors.message= 'El email ingresado ya existe';
+               res.locals.errors = errors;
+           return res.render('register')
+           }
+       })
+       .catch(function (error) {
+           console.log(error);
+       })
 
         if (req.body.email == "") {
             errors.message = 'El campo de email no puede estar vacío';
