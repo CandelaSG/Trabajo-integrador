@@ -45,11 +45,13 @@
 		<!-- Mis productos -->
 		<section class="container products-wrapper">
 			<section class="row">
-
 				<article class="col-12">
-					<h2 class="products-title">Mis productos</h2>
-				</article>
-
+				<% if (userCorrecto) { %>
+					<h2 class="products-title">Mis productos</h2>	
+				<% }  else { %>
+					<h2 class="products-title">Productos</h2>
+				<% } %>
+			    </article>
 				<!-- Show mis productos -->
 				<% if (perfil.producto.length > 0) { %>
 					<% for( let i = 0; i < perfil.producto.length; i++ ) { %>
