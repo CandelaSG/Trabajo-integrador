@@ -8,15 +8,21 @@ const productController = {
     show : function (req, res) {
         let id = req.params.id;
         /* Relaciones */
-        /* let relaciones = {
-          include: [{association: "perfil"}, {association: "comentario", include: [{association: "perfil"}], order: [['created_at', 'DESC']] }]
-        }; */
         let relaciones = {
-          include: {
-            all:true,
-            nested: true
-          }
-        }
+          include:[
+            {  
+               association: "comentario",
+               include: "perfil"
+            }, 
+            {  
+               association: "perfil",  
+            }, 
+         ],
+         order: [
+            [ "comentario", "createdAt", "DESC"]
+         ],
+        };
+        
         /* Encontrar el producto con la PK */
         producto.findByPk(id, relaciones)
         .then(function (resultado) {
