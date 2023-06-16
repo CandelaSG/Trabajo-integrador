@@ -14,6 +14,9 @@
 
 					<article class="col-12">
 						<h2 class="products-title titleLog">Agregar productos</h2>
+						<% if (locals.errors) { %>
+							<p style="color: red;"><%= errors.message %></p>
+						<% } %>
 					</article>
 
 					<form action="/product/add" method="POST" class="formLog">
@@ -23,7 +26,7 @@
 						</article>
 
 						<article class="inputForm">
-							<input type="text" name="descripcion" placeholder="Descripción" class="text">
+							<input type="text" name="descripcion" placeholder="Descripción" value="" class="text">
 						</article>
 
 						<article class="inputForm">

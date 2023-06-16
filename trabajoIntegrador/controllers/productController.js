@@ -43,11 +43,29 @@ const productController = {
       }      
     },
     storeProduct: (req,res)=>{
+        let errors= {}
         let infoProducto = req.body;
+
+        if (req.body.nombre == ""){
+          errors.message = "El nombre esta vacío"
+          res.locals.errors = errors
+          return res.render("product-add")
+
+        } else if (req.body.descripcion == ""){
+          errors.message = "La descripcion esta vacía"
+          res.locals.errors = errors
+          return res.render("product-add")
+
+        } else{
+
+        let foto_producto = '/images/products/default-image.png';
+            if (infoProducto.foto != "") {
+                foto_producto = infoProducto.foto
+            }
         let guardarProducto = {
             nombre: infoProducto.nombre,
             descripcion: infoProducto.descripcion,
-            foto: infoProducto.foto,
+            foto: foto_producto,
             id_perfil: req.session.user.id
         };
         producto.create(guardarProducto)
@@ -56,7 +74,7 @@ const productController = {
         })
         .catch((err)=>{
             console.log(err);
-        })
+        })}
         ;
     },
     search: (req,res)=>{
@@ -104,6 +122,8 @@ const productController = {
     updatePost: (req, res) =>{
       let id = req.params.id;
       let infoProd = req.body;
+      
+
       let filtrado = {
         where : [
           {id: id}

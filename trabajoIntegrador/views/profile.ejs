@@ -24,8 +24,6 @@
 								<a href="/profile/edit">
 									<i class="fas fa-cog"></i>
 								</a>
-							<% }  else { %>
-								<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 							<% } %>
 						</h1>
 						
@@ -58,8 +56,8 @@
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">
 								<a href="/product/id/<%=perfil.producto[i].id%>">
-									<figure class="product-box_image">
-										<img src=<%=perfil.producto[i].foto %> alt=<%=perfil.producto[i].nombre %>>
+									<figure class="product-box_image" >
+										<img height="255 px" width="255 px" src=<%=perfil.producto[i].foto %> alt=<%=perfil.producto[i].nombre %>>
 									</figure>
 									
 									<article class="product-box_data">

@@ -27,13 +27,13 @@
 								<section class="product-box">
 									<a href="id/<%=listaProductos[i].id%>">
 										<figure class="product-box_image">
-											<img src="<%=listaProductos[i].foto %>" alt="Imagen de <%=listaProductos[i].nombre %>">
+											<img height="255 px" width="255 px" src="<%=listaProductos[i].foto %>" alt="Imagen de <%=listaProductos[i].nombre %>">
 										</figure>
 										<article class="product-box_data">
 											<h2><%=listaProductos[i].nombre %></h2>
 											<p><%=listaProductos[i].descripcion %></p>
 											<p>Comentarios: <%= listaProductos[i].perfil.comentario.length %></p>
-											<p>Creador: <a href="profile/id/<%= listaProductos[i].perfil.id %>"> <%= listaProductos[i].perfil.usuario %> </a></p>
+											<p>Creador: <a href="/profile/id/<%= listaProductos[i].perfil.id %>"> <%= listaProductos[i].perfil.usuario %> </a></p>
 										</article>
 									</a>
 								</section>
